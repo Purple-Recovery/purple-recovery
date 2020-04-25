@@ -1,6 +1,9 @@
-Insert architecture specification here
-We will also be creating our component stubs on this repo
+# Purple Recovery Architecture Description
 
----
+*Insert architecture specification here*
 
-# Purple Recovery Architecture Specification
+> Work out of the Google doc before adding here
+
+<!-- -->
+
+> We will also be creating our component stubs on this repo
