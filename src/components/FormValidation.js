@@ -8,6 +8,6 @@ import { useForm } from 'react-hook-form';
 //
 // pre: displays empty form
 // post: displays form and errors for fields
-export default function FormValidation() {
+function FormValidation() {
 
 }
