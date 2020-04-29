@@ -30,15 +30,14 @@ path relative to the main page. Will provide one-click access to each of the par
   * Resides on client-side only
  
 #### DropANoteView
-  * Displays the text “Anything missing?” with a button to send feedback
+  * Displays the text “Anything missing?” with a button to open FormModalView
   * Visible as a bottom-right corner footer on all pages
-  * Communicates with DropANoteController to display SubmitAResourceView on button click
   * Resides on client-side only
  
-#### SubmitAResourceView
+#### FormModalView
   * Displays a submittable form with fields for name, email, suggestions for a new resource, and general feedback
   * Displays submit button on the bottom right
-  * Communicates with FormVerificationController to validate form data
+  * Communicates with FormValidationContoller to validate each field
   * Resides on client-side only
  
 #### SubmissionSuccessView
@@ -66,12 +65,12 @@ related to the section will be displayed in a scrollable view, and may be divide
   
 ## Controllers
 _DropANoteController_
-   * On button click from DropANoteView, displays the SubmitAResourceView
+   * On button click from DropANoteView, displays the FormModalView
    * Resides on client-side only
  
-_FormVerificationController_
-   * On form submission, performs field-checking and verification
-   * If all required fields are filled and valid, sends form data to FormSubmissionController
+_FormValidationController_
+   * On form submit, performs field validation. If all fields pass validation, sends form data to FormSubmissionController
+   * We will utilize the React Hook Form package from Node.js to implement the validation
    * Resides on client-side only
  
 _FormSubmissionController_
