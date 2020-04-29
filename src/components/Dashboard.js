@@ -17,16 +17,15 @@ class BannerView extends Component {
 
 //
 class SectionView extends Component {
+  
+  // On button click, redirect to Section Individual Page
+  handleClick(event) {
 
+  }
 }
 
 //
 class TrackersView extends Component {
-
-}
-
-//
-class BreadcrumbNavView extends Component {
 
 }
 

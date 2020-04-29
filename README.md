@@ -59,9 +59,11 @@ related to the section will be displayed in a scrollable view, and may be divide
   * Resides on client-side only
   
 ## Models
-#### Firebase for Drop a Note
-   * Communicates with DropANoteController to receive the correctly formatted text data and return a “Submission Success” page
-   * Feedback is stored in external database, to be accessed by Purple Recovery team members eventually for review after submission
+#### DropANoteModel
+   * Text-based model recieves form data from FormValidationController, organizes and sends the data for storage in Firebase
+   * Communicates with FormSubmissionController when a submission is successful
+   * Feedback data is stored externally in Firebase, to be accessed by Purple Recovery team members eventually for review after submission
+   * Resides on client-side only
   
 ## Controllers
 _DropANoteController_
@@ -74,7 +76,8 @@ _FormValidationController_
    * Resides on client-side only
  
 _FormSubmissionController_
-  * This component receives a form submission from FormVerificationController, captures the fields and sends the data to Firebase for storage
-  * Communicates with Firebase to send submission data
+  * This component receives a form submission from FormValidationController and sends the data to the DropANoteModel
+  * Communicates with DropANoteModel to register a successful submission
+  * Displays SubmissionSuccessView on successful submission
   * Resides on client-side only
 
