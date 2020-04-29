@@ -40,9 +40,9 @@ path relative to the main page. Will provide one-click access to each of the par
   * Communicates with FormValidationContoller to validate each field
   * Resides on client-side only
  
-#### SubmissionSuccessView
+#### SubmitSuccessView
   * Displays a confirmation to the user that their form has been submitted
-  * Communicates with FormSubmissionController to verify successful submission
+  * Communicates with FormSubmitController to verify successful submission
   * Resides on client-side only
  
 #### IndividualPageView
@@ -61,23 +61,24 @@ related to the section will be displayed in a scrollable view, and may be divide
 ## Models
 #### DropANoteModel
    * Text-based model recieves form data from FormValidationController, organizes and sends the data for storage in Firebase
-   * Communicates with FormSubmissionController when a submission is successful
+   * Communicates with FormSubmitController when a submission is successful
    * Feedback data is stored externally in Firebase, to be accessed by Purple Recovery team members eventually for review after submission
    * Resides on client-side only
   
 ## Controllers
 _DropANoteController_
    * On button click from DropANoteView, displays the FormModalView
+   * On submission success from FormSubmitController, displays SubmitSuccessView
    * Resides on client-side only
  
 _FormValidationController_
-   * On form submit, performs field validation. If all fields pass validation, sends form data to FormSubmissionController
+   * On form submit, performs field validation. If all fields pass validation, sends form data to FormSubmitController
    * We will utilize the React Hook Form package from Node.js to implement the validation
    * Resides on client-side only
  
-_FormSubmissionController_
+_FormSubmitController_
   * This component receives a form submission from FormValidationController and sends the data to the DropANoteModel
   * Communicates with DropANoteModel to register a successful submission
-  * Displays SubmissionSuccessView on successful submission
+  * Communicates to DropANoteController to display SubmitSuccessView
   * Resides on client-side only
 

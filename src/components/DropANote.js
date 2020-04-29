@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-// Firebase 
+// Model for feedback data
 class DropANoteModel extends Component {
 
   // pre: Accepts Strings for name, email, resource name, resource type, url,
@@ -14,16 +14,16 @@ class DropANoteModel extends Component {
 
 // Called by FormValidation. Passes data to DropANoteModel.saveFeedback()
 // and waits for confirmation
-class FormSubmissionController extends Component() {
+class FormSubmitController extends Component() {
 
   // pre: sends feedback data as arguments to DropeANoteModel.saveFeedback()
-  // post: communicates to DropANoteController to display SubmissionSuccessView
+  // post: communicates to DropANoteController to display SubmitSuccessView
   sendFeedback() {}
 
 }
 
 // Handles the display of the DropANoteView, FormModalView and
-// SubmissionSuccessView
+// SubmitSuccessView
 class DropANoteController extends Component {
   
   // On button click, display FormModalView
@@ -33,19 +33,19 @@ class DropANoteController extends Component {
 
   }
 
-  // On confirmation from FormSubmissionController, render the
-  // SubmissionSuccessView
+  // On confirmation from FormSubmitController, render the
+  // SubmitSuccessView
   handleSuccess() {
   
   }
 
   // Renders the Drop a Note View
-  // Will display the FormModalView and SubmissionSuccessView as directed
+  // Will display the FormModalView and SubmitSuccessView as directed
   // by controllers
   //
   // pre: Displays DropANoteView
   // post: Displays FormModalView over page
-  // post: On submission, displays SubmissionSuccessView
+  // post: On submission, displays SubmitSuccessView
   render() {
     return (
       <div></div>
@@ -61,6 +61,6 @@ class DropANoteView extends Component {}
 class FormModalView extends Component {}
 
 // Modal displayed on submission success
-class SubmissionSuccessView extends Component {}
+class SubmitSuccessView extends Component {}
 
-export {DropANoteModel, FormSubmissionController};
+export {DropANoteModel, FormSubmitController};
