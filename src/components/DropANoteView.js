@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 // Handles the display of the DropANoteView and FormModalView
-class DropANoteView extends Component {
+export default class DropANoteView extends Component {
   
   // On button click, display FormModalView
   // pre: modal is not visible
@@ -19,5 +19,3 @@ class DropANoteView extends Component {
     );
   } 
 }
-
-export default DropANote;
