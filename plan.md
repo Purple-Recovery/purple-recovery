@@ -1,4 +1,4 @@
-#Plan
+# Plan
 
 ## 1. Coordination
 
@@ -33,7 +33,7 @@
 
 * _back-end team pls add mini statement here similar to front-end team_
 
-###Views: 
+### Views: 
 
 * **“DashboardView”**: Godgiven, Kassandra, & Ibrar will work together on writing production code (and verifying it; methods detailed below on section 5) for this component in HTML & CSS. This view is to show the HeaderView, BannerView, SectionViews, and DropANote. The front-end team will also have ownership of the following views, as they are subcomponents of “DashboardView”, which will also be written in HTML & CSS (with exception to DropANote; the back-end team has ownership of that as it has a lot of back-end controllers attached):
 	* **“HeaderView”**:  This view component displays the Purple Recovery title and site description, and will also have an instance of the BannerView. 
@@ -44,11 +44,11 @@
 
 * **DropANoteView**, **FormModalView**, **SubmitSuccessView**: Ashley & Kyler will work together on creating a view for these components in HTML, CSS, and Javascript. DropANoteView and FormModalView will have added features that rely on Javascript and React capabilities, which will also be created by Kyler and Ashley. Therefore, because they are working on the functionality behind this feature, they will also want to control what appears on the view according to the requirements and how to make it best work. SubmitSuccessView will appear once the FormModalView is verified (all applicable fields are filled in correctly), and the data will be stored in a Firebase database. Kyler and Ashley both have a working knowledge of HTML and CSS from INFO 340, and are capable of integrating it with the other view work of the group.
 
-###Models: 
+### Models: 
 
 * **DropANoteModel**: Ashley & Kyler will work on this together, they will work to ensure that the architecture and requirements of [item 6](https://github.com/Purple-Recovery/Requirements/blob/master/requirements.md) are met. They will specifically be creating software that relies on the inputs of the FormModalView, and then verifies all applicable text information is entered in correctly and the data will be stored in a Firebase database. Kyler and Ashley both have a working knowledge of HTML, CSS, Javascript and React from INFO 340, and are capable of integrating it with the other view work of the group.
 
-###Controllers: 
+### Controllers: 
 
 * **DropANoteController**, **FormValidationController**, **FormSubmitController**: Ashley & Kyler will work together on creating a view for this component in Javascript.  Specifically, these controllers work to make the FormModalView and SubmitSuccessView display on screen, to verify that all applicable text fields are entered correctly, and upon using the form submission button, this controller sends data to FormValidationController and the DropANoteModel to notify if it was a successful submission, and then display the SubmitSuccessView. Kyler and Ashley both have a working knowledge of HTML, CSS, Javascript and React from INFO 340, and are capable of integrating it with the other view work of the group.
 
