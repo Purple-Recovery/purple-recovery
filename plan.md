@@ -143,7 +143,7 @@ For more detail on our requirements, please see [requirements repo](https://gith
 
 > Verification: Manual testing and inspection. Code inspection for the hyperlinks, href, and making sure the integration of the information is correct.
 
-###3: Responses
+### 3: Responses
 
 3.1. This section will contain links to UW-community published material (The Daily, UW Faculty Messages, UW Facebook Pages, etc.).
 
@@ -161,7 +161,7 @@ For more detail on our requirements, please see [requirements repo](https://gith
 
 > Verification: Manual inspection and visual confirmation. We will check the bottom right corner of this section and ensure that it says ‘Find Articles’, and that clicking it leads to the Responses individual page. 
 
-###4: Community
+### 4: Community
 
 4.1. This section will contain the three most recently added Community links to Purple Recovery. These links can either be team-curated (added by Purple Recovery team) or added by the public via "Drop A Note" (and then verified by Purple Recovery team).
 
@@ -175,7 +175,7 @@ For more detail on our requirements, please see [requirements repo](https://gith
 
 > Verification: Manual inspection and visual confirmation. We will check the bottom right corner of this section and ensure that it says ‘Stay Connected’, and that clicking it leads to the Community individual page. 
 
-###5: Trackers & Dashboards
+### 5: Trackers & Dashboards
 
 5.1 This section will contain links to data visualization dashboards regarding COVID-19 statistics.
 
@@ -209,7 +209,7 @@ For more detail on our requirements, please see [requirements repo](https://gith
 6.14. If the submission is complete and without error, a successful submission message will appear in place of the previous screen’s view.
 6.15. On the top right corner, the successful submission message will have a button with an "x" icon; clicking it closes the successful submission message modal screen.
 
-###7: Section View Page
+### 7: Section View Page
 
 7.1. A section view page will be made for the following three sections: Resources, Responses, and Community.
 
