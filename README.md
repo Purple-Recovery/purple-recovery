@@ -22,11 +22,13 @@
 #### “TrackersSectionView”
   * This component displays links to external data visualization dashboards regarding COVID-19 statistics. 
 	* Resides on the client-side only
- 
-#### BreadcrumbNavView
-  * This component displays a line of text that will display the users directory 
-path relative to the main page. Will provide one-click access to each of the parent pages. 
-  * Communicates with the previous page. 
+
+#### IndividualPageView
+  * This component displays a whole page dedicated to a main section. All links related to the section will be displayed in a scrollable view, and may be divided into subsections.
+  * Three instances:
+	  * “ResourcesPageView”
+	  * “ResponsesPageView”
+	  * “CommunityPageView”
   * Resides on client-side only
  
 #### DropANoteView
@@ -43,19 +45,6 @@ path relative to the main page. Will provide one-click access to each of the par
 #### SubmitSuccessView
   * Displays a confirmation to the user that their form has been submitted
   * Communicates with FormSubmitController to verify successful submission
-  * Resides on client-side only
- 
-#### IndividualPageView
-  * This component displays a whole page dedicated to a main section. All links
-related to the section will be displayed in a scrollable view, and may be divided into subsections.
-  * Contains a BreadcrumbNavView and an IndividualPageNavView of the following:
-	  * “ResourcesPageView”
-	  * “ResponsesPageView”
-	  * “CommunityPageView”
- 
-#### IndividualPageNavView
-  * This component displays a side navigation box that will display the links to the
- 	other instances of IndividualPageViews.
   * Resides on client-side only
   
 ## Models
