@@ -68,11 +68,15 @@
 
 ## 5. Verification
 
-* Code reviews and inspections will happen every time a component is finished. 
+**Overview**
 
-* We will not be writing any proofs; most of our testing are going to be either manual testing, visual confirmation, or code review.
+* For each component, unit tests and inspections will be conducted when the component is finished. 
 
-* If any components are failing, we will inspect the component code for any defects, and fix it from there.
+* We do not anticipate the need to run automatic tests or write proofs. Due to the visual-heavy nature of our app, the majority of testing will be manual, involving inspection and code review.
+
+* On each build of the app, a usability integration test will be conducted to ensure all user interfaces, buttons and links, and forms are working as expected.
+
+* If any components are failing, we will inspect the component code for any defects, and develop a fix.
 
 * We will not be running automated tests after every build. Instead, we will conduct manual testing, visual confirmation, or code review before every commit or pull request. Kyler (our CTO) will conduct code inspections when reviewing pull requests; a code inspection will ensure that all written code fits within our proposed architecture.
 
