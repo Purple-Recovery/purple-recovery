@@ -80,7 +80,7 @@
 
 * We will not be running automated tests after every build. Instead, we will conduct manual testing, visual confirmation, or code review before every commit or pull request. Kyler (our CTO) will conduct code inspections when reviewing pull requests; a code inspection will ensure that all written code fits within our proposed architecture.
 
-**Requirements**
+**Verification for Requirements**
 
 For more detail on our requirements, please see [requirements repo](https://github.com/Purple-Recovery/Requirements).
 
@@ -198,37 +198,62 @@ For more detail on our requirements, please see [requirements repo](https://gith
 ### 6: Drop A Note
 6.1. On the bottom right of each page, there will be a sticky square section, containing, “Anything missing?” and a button that contains the text “Drop a Note”.
 
+> Verification: Manual testing to confirm the visual display
+
 6.2. When clicked, the “Drop a Note” button will overlay a modal card form on top of the user’s current page position.
 
+> Verification: Unit testing to confirm the function to display the modal
+
 6.3. The form created from clicking “Drop a Note” will contain a card title, description, input fields, and a “Submit” button.
+
 > Verification: for requirements 6.1-6.3,  these items will be verified through visual confirmation on the Web App.
 
 6.4. On the top right corner, the form will have a button with an “x” icon; clicking it closes the form.
 
+> Verification: Manual testing to confirm button display; unit testing to confirm button close function
+
 6.5. The user will be able to check the “Feedback?” and “Resource?” checkboxes
+
+> Verification: Manual testing to ensure feedback and resource boxes can be checked
 
 6.6. The user will be able to input string values in the “Full Name” and “Email” fields.
 
+> Verification: Manual unit testing for correct and erroneous inputs
+
 6.7. The “Type of Resource” dropdown will consist of the following options: Resources, Responses, Community, Trackers and Dashboards, and Other/I’m Not Sure.
+
+> Verification: Manual testing to ensure display of options
 
 6.8. If the “Resource?” checkbox is clicked, the user will be able to input string values in the “Link to Resource” and “Notes” fields and use the “Type of Resource” dropdown to choose a resource type.
 
+> Verification: Unit testing for string fields; manual testing to confirm all fields can be entered / selected
+
 6.9. If the “Feedback?” checkbox is clicked, the user will be able to input string values in the “Feedback” field.
+
 > Verification: for requirements 6.4-6.9,  these items will be verified through manual verification of functionality to test input ability as well as proper operation in the javascript  through code inspection.
 
 6.10. The “Submit” button will push the entered data through an internal verification process.
 
+> Verification: Unit testing to ensure data is passed and verified in React
+
 6.11. The verification process is done through Javascript or React and will ensure that categories that are checked should have all fields filled in and that formatting for email is syntactically correct (i.e. example@hostsite.com).
+
+> Verification: Manual testing to submit missing fields and confirm that form submission is blocked; manual testing to input incorrectly formatted emails, and expect no submission
 
 6.12. The verification process will also validate submitted links in Javascript.
 
+> Verification: Manual testing to submit incorrectly formatted urls
+
 6.13. If the submission is found to be incomplete by this verification process, the user will be prompted to edit fields that did not pass the verification process and submit again.
+
+> Verification: Manual testing for each individual field; verify that form is not submitted and errors are displayed for each erroneous field
 
 6.14. If the submission is complete and without error, a successful submission message will appear in place of the previous screen’s view.
 
 > Verification: for requirements 6.10-6.14,  these items will be verified through code inspection of proper package usage in Javascript and React to ensure functionality.
 
 6.15. On the top right corner, the successful submission message will have a button with an "x" icon; clicking it closes the successful submission message modal screen.
+
 > Verification: for requirement 6.15,  this item will be verified through visual confirmation as well as manual verification of functionality in the javascript through code inspection.
 
 ### 7: Section View Page
