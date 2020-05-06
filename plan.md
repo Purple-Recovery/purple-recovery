@@ -27,11 +27,11 @@
 
 ## 3. Ownership
 
-* Our team has decided to split up the work as __‘Front-End’__ with Godgiven, Kassandra, and Ibrar doing the front-end work, and __‘Back-End’__ with Kyler and Ashley doing the back-end work. 
+* Our team has decided to split up the work as __‘Front-End’__ with Godgiven, Kassandra, and Ibrar doing the front-end work, and __‘Back-End’__ with Kyler and Ashley doing the back-end work as well as some front-end development. 
 
 * The front-end team has sufficient time, expertise, and resources--we will all be contributing appropriate time for a 5 credit class, our strengths and individual expertise lie within front-end development, and we are aptly-resourced with necessary software and hardware to complete the work necessary. 
 
-* _back-end team pls add mini statement here similar to front-end team_
+* The back-end team is most confident in their skills in all realms of full stack development. Because we are more comfortable in this apsect, we decided to work on areas that require more of a software focus (from front end view to package management and Firebase connection). We have the communication skills, dedication, and time required to complete the task at hand.
 
 ### Views: 
 
@@ -191,23 +191,41 @@ For more detail on our requirements, please see [requirements repo](https://gith
 
 > Verification: Manual testing and visual confirmation. Code inspection for the hyperlinks, check buttons, and making sure the integration of the information is correct.
 
-6: Drop A Note
-	6.1. On the bottom right of each page, there will be a sticky square section, containing, “Anything missing?” and a button that contains the text “Drop a Note”.
-	6.2. When clicked, the “Drop a Note” button will overlay a modal card form on top of the user’s current page position.
+### 6: Drop A Note
+6.1. On the bottom right of each page, there will be a sticky square section, containing, “Anything missing?” and a button that contains the text “Drop a Note”.
+
+6.2. When clicked, the “Drop a Note” button will overlay a modal card form on top of the user’s current page position.
+
 6.3. The form created from clicking “Drop a Note” will contain a card title, description, input fields, and a “Submit” button.
+> Verification: for requirements 6.1-6.3,  these items will be verified through visual confirmation on the Web App.
+
 6.4. On the top right corner, the form will have a button with an “x” icon; clicking it closes the form.
-* Verification: for 6.1-6.4,  
+
 6.5. The user will be able to check the “Feedback?” and “Resource?” checkboxes
+
 6.6. The user will be able to input string values in the “Full Name” and “Email” fields.
+
 6.7. The “Type of Resource” dropdown will consist of the following options: Resources, Responses, Community, Trackers and Dashboards, and Other/I’m Not Sure.
+
 6.8. If the “Resource?” checkbox is clicked, the user will be able to input string values in the “Link to Resource” and “Notes” fields and use the “Type of Resource” dropdown to choose a resource type.
+
 6.9. If the “Feedback?” checkbox is clicked, the user will be able to input string values in the “Feedback” field.
+> Verification: for requirements 6.4-6.9,  these items will be verified through manual verification of functionality to test input ability as well as proper operation in the javascript  through code inspection.
+
 6.10. The “Submit” button will push the entered data through an internal verification process.
+
 6.11. The verification process is done through Javascript or React and will ensure that categories that are checked should have all fields filled in and that formatting for email is syntactically correct (i.e. example@hostsite.com).
+
 6.12. The verification process will also validate submitted links in Javascript.
+
 6.13. If the submission is found to be incomplete by this verification process, the user will be prompted to edit fields that did not pass the verification process and submit again.
+
 6.14. If the submission is complete and without error, a successful submission message will appear in place of the previous screen’s view.
+
+> Verification: for requirements 6.10-6.14,  these items will be verified through code inspection of proper package usage in Javascript and React to ensure functionality.
+
 6.15. On the top right corner, the successful submission message will have a button with an "x" icon; clicking it closes the successful submission message modal screen.
+> Verification: for requirement 6.15,  this item will be verified through visual confirmation as well as manual verification of functionality in the javascript through code inspection.
 
 ### 7: Section View Page
 
