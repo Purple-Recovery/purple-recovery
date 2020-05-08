@@ -48,7 +48,10 @@ class DropANoteController extends Component {
   // post: On submission, displays SubmitSuccessView
   render() {
     return (
-      <div></div>
+      <div class="DropANoteView">
+        {/* Render Drop a Note View as an image */}
+          <img src="./img/dropanote.png" style="position: fixed;right: 0;bottom: 0;"></img>
+      </div>
     );
   } 
 }
