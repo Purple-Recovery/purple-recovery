@@ -25,14 +25,27 @@ class DropANoteModel extends Component {
 // Handles the display of the DropANoteView, FormModalView and
 // SubmitSuccessView
 class DropANoteController extends Component {
-  
+  constructor(props) {
+    super(props);
+    this.state = {show: false}
+  }
   
 
   // On button click, display FormModalView
   // pre: modal is not visible
   // post: modal is visible
-  handleClick() {
-    console.log('click');
+  showModal = () => {
+    console.log('Modal show');
+    this.setState({
+      show: true
+    });
+  }
+
+  hideModal = () => {
+    console.log('Modal hidden');
+    this.setState({
+      show: false
+    });
   }
 
   // On confirmation from FormSubmitController, render the
@@ -50,7 +63,10 @@ class DropANoteController extends Component {
   // post: On submission, displays SubmitSuccessView
   render() {
     return (
-      <DropANoteView />
+      <div>
+        <FormModalView show={this.state.show} hide={this.hideModal}/>
+        <DropANoteView showModal={this.showModal}/>
+      </div>
     );
   } 
 }
@@ -65,12 +81,9 @@ class DropANoteView extends Component {
     };
 
     return (
-      <div class="DropANoteView">
-        {/* Render Drop a Note View as an image */}
-        <button onClick={() => this.handleClick()}>
-          <img src={require("./img/dropanote.png")} style={imgStyle} alt="Submit a resource to be added" />
-        </button>
-      </div>
+      <button onClick={this.props.showModal}>
+        <img src={require("./img/dropanote.png")} style={imgStyle} alt="Submit a resource to be added" />
+      </button>
     );
   } 
 }
@@ -84,7 +97,10 @@ class FormModalView extends Component {
     }
 
     return (
-      <div>Modal</div>
+      <div className="modal">
+        Modal goes here
+        <button onClick={this.props.hide}>Close</button>
+      </div>
     );
   }
 
