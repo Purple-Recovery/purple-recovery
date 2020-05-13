@@ -14,18 +14,20 @@ class DropANoteModel extends Component {
 
 // Called by FormValidation. Passes data to DropANoteModel.saveFeedback()
 // and waits for confirmation
-class FormSubmitController extends Component() {
+/*class FormSubmitController extends Component() {
 
   // pre: sends feedback data as arguments to DropeANoteModel.saveFeedback()
   // post: communicates to DropANoteController to display SubmitSuccessView
   sendFeedback() {}
 
-}
+} */
 
 // Handles the display of the DropANoteView, FormModalView and
 // SubmitSuccessView
 class DropANoteController extends Component {
   
+  
+
   // On button click, display FormModalView
   // pre: modal is not visible
   // post: modal is visible
@@ -47,10 +49,16 @@ class DropANoteController extends Component {
   // post: Displays FormModalView over page
   // post: On submission, displays SubmitSuccessView
   render() {
+    var imgStyle = {
+      position: 'fixed',
+      right: 0,
+      bottom: 0
+    };
+
     return (
       <div class="DropANoteView">
         {/* Render Drop a Note View as an image */}
-          <img src="./img/dropanote.png" style="position: fixed;right: 0;bottom: 0;"></img>
+          <img src={require("./img/dropanote.png")} style={imgStyle} alt="Submit a resource to be added"></img>
       </div>
     );
   } 
@@ -66,4 +74,4 @@ class FormModalView extends Component {}
 // Modal displayed on submission success
 class SubmitSuccessView extends Component {}
 
-export {DropANoteModel, FormSubmitController};
+export {DropANoteModel, DropANoteController/*, DropANoteView, FormModalView, SubmitSuccessView, FormSubmitController*/};
