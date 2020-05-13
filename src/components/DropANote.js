@@ -32,7 +32,7 @@ class DropANoteController extends Component {
   // pre: modal is not visible
   // post: modal is visible
   handleClick() {
-
+    console.log('click');
   }
 
   // On confirmation from FormSubmitController, render the
@@ -49,6 +49,15 @@ class DropANoteController extends Component {
   // post: Displays FormModalView over page
   // post: On submission, displays SubmitSuccessView
   render() {
+    return (
+      <DropANoteView />
+    );
+  } 
+}
+
+// DropANote box displayed on bottom corner
+class DropANoteView extends Component {
+  render() {
     var imgStyle = {
       position: 'fixed',
       right: 0,
@@ -58,18 +67,28 @@ class DropANoteController extends Component {
     return (
       <div class="DropANoteView">
         {/* Render Drop a Note View as an image */}
-          <img src={require("./img/dropanote.png")} style={imgStyle} alt="Submit a resource to be added"></img>
+        <button onClick={() => this.handleClick()}>
+          <img src={require("./img/dropanote.png")} style={imgStyle} alt="Submit a resource to be added" />
+        </button>
       </div>
     );
   } 
 }
 
-// DropANote box displayed on bottom corner
-class DropANoteView extends Component {}
-
 // Displays submission form modal
 // Utilizes FormValidation hook to display fields and errors
-class FormModalView extends Component {}
+class FormModalView extends Component {
+  render () {
+    if (!this.props.show) {
+      return null;
+    }
+
+    return (
+      <div>Modal</div>
+    );
+  }
+
+}
 
 // Modal displayed on submission success
 class SubmitSuccessView extends Component {}
