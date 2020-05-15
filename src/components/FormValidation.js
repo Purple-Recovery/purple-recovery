@@ -11,8 +11,6 @@ import Dropdown from 'react-bootstrap/Dropdown'
 //
 // pre: displays empty form
 // post: displays form and errors for fields
-
-
 export default function Form() {
   const {register, handleSubmit, watch, errors} = useForm();
 
