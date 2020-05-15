@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Form from './FormValidation.js';
+import FormValidation from './FormValidation.js';
 import Modal from 'react-bootstrap/Modal'
 
 // Model for feedback data
@@ -107,7 +107,7 @@ class FormModalView extends Component {
     };
 
     return (
-      <div className="modal">
+      <div>
         <Modal.Dialog>
           <Modal.Header>
             <img onClick={this.props.hide} src={require("./img/close.png")} style={closeStyle} alt="Close resource submission page"/>
@@ -115,7 +115,7 @@ class FormModalView extends Component {
               <br></br>
             </Modal.Title>
           </Modal.Header>
-          <Form />
+          <FormValidation />
         </Modal.Dialog>
       </div>
     );

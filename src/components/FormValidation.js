@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { useForm } from 'react-hook-form';
-import { render } from '@testing-library/react';
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
+// import { render } from '@testing-library/react';
+// import DropdownButton from 'react-bootstrap/DropdownButton';
+import Form from 'react-bootstrap/Form';
 
 // Displays form fields and submit button. Utilizes the React Hook Form package 
 // to handle form validation and error display.
@@ -11,7 +11,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 //
 // pre: displays empty form
 // post: displays form and errors for fields
-export default function Form() {
+export default function FormValidation() {
   const {register, handleSubmit, watch, errors} = useForm();
 
   const onSubmit = data => {
@@ -29,7 +29,7 @@ export default function Form() {
   };
 
   return (
-    <div style={formStyle}>
+    <div>
       <img src={require("./img/submission_text.png")} style={submissionTextStyle} alt="Submit a Resource, Feedback, or Note"/>
       <form onSubmit={handleSubmit(onSubmit)}>
         First Name*
@@ -79,7 +79,7 @@ export default function Form() {
           </label>
         </div>
         <br></br>
-        <Dropdown>
+        {/* <Dropdown>
           <Dropdown.Toggle variant="success" id="dropdown-basic">
             Type of Resource
           </Dropdown.Toggle>
@@ -90,7 +90,17 @@ export default function Form() {
             <Dropdown.Item href="#/community">Community</Dropdown.Item>
             <Dropdown.Item href="#/trackers">Trackers and Dashboards</Dropdown.Item>
           </Dropdown.Menu>
-        </Dropdown>
+        </Dropdown> */}
+        <Form.Group controlId="exampleForm.ControlSelect1">
+          <Form.Label>Select the type of resource</Form.Label>
+          <Form.Control as="select">
+            <option>Resources</option>
+            <option>Responses</option>
+            <option>Community</option>
+            <option>Trackers</option>
+          </Form.Control>
+        </Form.Group>
+
         <br></br>
         <button type="submit">
           <img src={require("./img/submit.png")} alt="Submit resource button"/>
