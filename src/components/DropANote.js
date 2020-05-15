@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Form from './FormValidation.js';
 
 // Model for feedback data
 class DropANoteModel extends Component {
@@ -91,14 +92,18 @@ class DropANoteView extends Component {
 // Displays submission form modal
 // Utilizes FormValidation hook to display fields and errors
 class FormModalView extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render () {
     if (!this.props.show) {
       return null;
     }
-
+    
     return (
       <div className="modal">
-        Modal goes here
+        <Form />
         <button onClick={this.props.hide}>Close</button>
       </div>
     );
