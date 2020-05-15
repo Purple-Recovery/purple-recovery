@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 import {DropANoteController} from './DropANote.js';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Main app container
 // Contains the React Router for the website
