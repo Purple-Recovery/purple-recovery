@@ -4,28 +4,26 @@
   margin: 0 auto;
 }
 
-
 /* PURPLE RECOVERY */
 
 .PurpleRec {
-position: static;
-width: 317px;
-height: 40px;
-overflow: hidden;
+  position: static;
+  width: 317px;
+  height: 40px;
+  overflow: hidden;
 
-font-family: Encode Sans;
-font-style: normal;
-font-weight: 900;
-font-size: 32px;
-line-height: 40px;
-/* identical to box height */
+  font-family: Encode Sans;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 40px;
+  /* identical to box height */
 
-
-color: #4B2D83;
+  color: #4b2d83;
 }
 .PurpleRec a {
   float: left;
-  color: #4B2D83;
+  color: #4b2d83;
   text-align: center;
 }
 
@@ -61,11 +59,12 @@ body {
   float: left;
   width: 25%;
   padding: 0 10px;
-
 }
 
 /* Remove extra left and right margins, due to padding in columns */
-.row {margin: 0 -5px;}
+.row {
+  margin: 0 -5px;
+}
 
 /* Clear floats after the columns */
 .row:after {
@@ -74,14 +73,12 @@ body {
   clear: both;
 }
 
-
-
 /* Style the counter cards || all the cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
   padding: 12px 16px;
   text-align: center;
-  background-color:#BBAFD0;
+  background-color: #bbafd0;
 }
 .container {
   padding: 2px 16px;
@@ -96,65 +93,60 @@ body {
   }
 }
 
-
 /* Resource */
 .Resource {
-/* position: absolute; */
-width: 122px;
-height: 30px;
+  /* position: absolute; */
+  width: 122px;
+  height: 30px;
 
-font-family: Encode Sans;
-font-style: normal;
-font-weight: 900;
-font-size: 24px;
-line-height: 30px;
-/* identical to box height */
+  font-family: Encode Sans;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 30px;
+  /* identical to box height */
 
-
-color: #4B2D83;
+  color: #4b2d83;
 }
 
 .Responses {
   /* Responses */
-width: 128px;
-height: 30px;
+  width: 128px;
+  height: 30px;
 
-/* primary headline */
+  /* primary headline */
 
-font-family: Encode Sans;
-font-style: normal;
-font-weight: 900;
-font-size: 24px;
-line-height: 30px;
-/* identical to box height */
+  font-family: Encode Sans;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 30px;
+  /* identical to box height */
 
-
-color: #4B2D83;
+  color: #4b2d83;
 }
 
 .Community {
+  width: 139px;
+  height: 30px;
 
-width: 139px;
-height: 30px;
+  font-family: Encode Sans;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 30px;
+  /* identical to box height */
 
-font-family: Encode Sans;
-font-style: normal;
-font-weight: 900;
-font-size: 24px;
-line-height: 30px;
-/* identical to box height */
-
-
-color: #4B2D83;
+  color: #4b2d83;
 }
 /* banner */
 .danger {
   float: right;
   transform: skew(180deg);
   color: white;
-  background-color: #B6A579;
-  border-left: 20px solid  #B6A579;
-  border-right: 79px solid #B6A579;
+  background-color: #b6a579;
+  border-left: 20px solid #b6a579;
+  border-right: 79px solid #b6a579;
 }
 
 /* The arrow for the golden banner */
