@@ -5,7 +5,12 @@ import React, {Component} from 'react';
 // This communicates with the previous page.
  // Resides client-side only
 class BreadcrumbNavView extends Component {
-
+    render() {
+        return (
+            // TODO
+            <p>Home -> Responses</p>
+        )
+    }
 }
 
 export default BreadcrumbNavView;
