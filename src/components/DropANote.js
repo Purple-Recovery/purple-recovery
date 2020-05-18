@@ -101,22 +101,22 @@ class FormModalView extends Component {
     }
     
     var closeStyle = {
-      float: 'right',
       width: 50,
-      height: 50
+      height: 50, 
+      float: 'right'
     };
 
     return (
       <div>
-        <Modal.Dialog>
-          <Modal.Header>
-            <img onClick={this.props.hide} src={require("./img/close.png")} style={closeStyle} alt="Close resource submission page"/>
-            <Modal.Title> 
-              <br></br>
-            </Modal.Title>
-          </Modal.Header>
-          <FormValidation />
-        </Modal.Dialog>
+          <Modal.Dialog  size="lg">
+            <Modal.Header>
+              <img onClick={this.props.hide} src={require("./img/close.png")} style={closeStyle} alt="Close resource submission page"/>
+              <Modal.Title> 
+                <br></br>
+              </Modal.Title>
+            </Modal.Header>
+            <FormValidation />
+          </Modal.Dialog>
       </div>
     );
   }
