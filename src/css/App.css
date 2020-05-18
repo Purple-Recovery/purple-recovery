@@ -1,3 +1,40 @@
+body {
+  font-family: 'Encode Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2 {
+  color: #452e83;
+}
+
+a {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.headliner{
+  padding: 15px;
+  padding-left: 40px;
+  font-family: 'Encode Sans', sans-serif;
+  font-size: 36px;
+}
+
+.headliner2 {
+  font-family: 'Encode Sans', sans-serif;
+  font-size: 26px;
+}
+
+.linkCluster {
+  padding: 15px;
+  padding-left: 40px;
+}
+
+.sectionPageNav {
+  padding: 15px;
+  position: fixed;
+  top: 80px;
+  right: 40px;
+}
+
 .App {
   text-align: center;
 }

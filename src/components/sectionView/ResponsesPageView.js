@@ -4,10 +4,11 @@ import Headliner from "./Headliner";
 import SectionPageNavView from "./SectionPageNavView";
 import LinkCluster from "./ResponsesSubsection";
 
+
 // This section will contain links to UW-community published material (The Daily, UW Faculty Messages, UW Facebook Pages, etc.).
 // The articles will be displayed as card buttons with the article title on the right and the page cover image in the article on the left (if available).
 //
-class ResponsesPageView extends Component {
+class PageView extends Component {
   render() {
   
     let subsections = [];
@@ -29,4 +30,4 @@ class ResponsesPageView extends Component {
   }
 }
 
-export default ResponsesPageView;
+export default PageView;

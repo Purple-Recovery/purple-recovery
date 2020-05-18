@@ -13,8 +13,8 @@ class LinkCluster extends Component {
     }
 
     return (
-      <div>
-        <h2>{this.props.name}</h2>
+      <div class="linkCluster">
+        <h2 className="headliner2">{this.props.name}</h2>
         {links}
       </div>
     );

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 import {DropANoteController} from './DropANote.js';
-import ResponsesPageView from "./sectionView/ResponsesPageView"
+import PageView from "./sectionView/ResponsesPageView"
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Main app container
@@ -9,32 +9,41 @@ import ResponsesPageView from "./sectionView/ResponsesPageView"
 class App extends Component {
   responsesLinks =  [
     {
-      name: "Health, wellness, and prevention",
+      name: "Prevention and Personal Health",
       links: [
-        { name: "Hall health FAQ", url: "https://google.com" },
         {
-          name: "What to do if you're experiencing symptoms",
-          url: "https://google.com",
+          name: "What to do if you feel sick",
+          url: "https://www.washington.edu/coronavirus/#health",
         },
+        { 
+          name: "COVID-19 Symptoms", 
+          url: "https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html",
+        } 
       ],
     },
     {
       name: "Staff and Student Workers",
       links: [
-        { name: "UAW 421, Student Union Homepage", url: "https://google.com" },
         {
-          name: "ASE and other hourly workers FAQ",
-          url: "https://google.com",
+          name: "Information for Staff and Student Workers",
+          url: "https://www.washington.edu/coronavirus/#staff",
+        },
+        { 
+          name: "UWHR's Working during COVID-19", 
+          url: "https://hr.uw.edu/coronavirus/",
         },
       ],
     },
     {
-      name: "Classes, Academics, & Commencement",
+      name: "Univesity Operations",
       links: [
-        { name: "Library Hours", url: "https://google.com" },
+        { 
+          name: "Research and laboratory operations", 
+          url: "https://www.washington.edu/coronavirus/#labs" 
+        },
         {
-          name: "Tutoring Resources",
-          url: "https://google.com",
+          name: "UW Medicine hospitals and clinics",
+          url: "https://www.washington.edu/coronavirus/#uwmedicine",
         },
       ],
     }
@@ -44,7 +53,7 @@ class App extends Component {
     return (
       <body className="landing-page">
         <DropANoteController />
-        <ResponsesPageView sectionName="RESPONSES" subsections={this.responsesLinks}/>
+        <PageView sectionName="RESPONSES" subsections={this.responsesLinks}/>
       </body>
     );
   } 

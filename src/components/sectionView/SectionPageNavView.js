@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class SectionPageNav extends Component {
   render() {
     return (
-      <div>
+      <div class="sectionPageNav">
         <div>
           <h2 id="sectionPagNavTitle">
             OTHER SECTIONS
