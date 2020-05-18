@@ -29,7 +29,26 @@ color: #4B2D83;
   text-align: center;
 }
 
-* {
+/* clearfix for the img with the button */
+.img1 {
+  float: left;
+}
+.clearfix {
+  content: "";
+  clear: both;
+  display: table;
+}
+.button3 {
+  border-radius: 8px; /*makes the button edge rounded*/
+  padding: 9px 10px;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 150px;
+}
+
+.card {
   box-sizing: border-box;
 }
 
@@ -55,10 +74,12 @@ body {
   clear: both;
 }
 
+
+
 /* Style the counter cards || all the cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-  padding: 16px;
+  padding: 12px 16px;
   text-align: center;
   background-color:#BBAFD0;
 }
@@ -75,8 +96,6 @@ body {
   }
 }
 
-.button3 
-{border-radius: 8px;}
 
 /* Resource */
 .Resource {
