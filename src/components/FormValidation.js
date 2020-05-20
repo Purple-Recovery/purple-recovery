@@ -29,20 +29,28 @@ export default function FormValidation() {
   
   const classes = useStyles();
   // Text area values
-  const [value1, setValue1] = React.useState(''); // Link to Resource
-  const [value2, setValue2] = React.useState(''); // Feedback
-  const [value3, setValue3] = React.useState(''); // Notes
+  const [link, setlink] = React.useState(''); // Link to Resource
+  const [feedback, setfeedback] = React.useState(''); // Feedback
+  const [note, setnote] = React.useState(''); // Notes
 
   // Text area set values
-  const handleChange1 = (event) => {
-    setValue1(event.target.value);  // Link to Resource
+  const handleChangeLink = (event) => {
+    setlink(event.target.value);  // Link to Resource
   };
-  const handleChange2 = (event) => {
-    setValue2(event.target.value);  // Feedback
+  const handleChangeFeedback = (event) => {
+    setfeedback(event.target.value);  // Feedback
   };
-  const handleChange3 = (event) => {
-    setValue3(event.target.value);  // Notes
+  const handleChangeNote = (event) => {
+    setnote(event.target.value);  // Notes
   };
+
+  // // handle feedback radio button value change
+  //  selectionChanged = (event) => {
+  //   console.log(event.target.value);
+  //   this.setState({
+  //     selectedoptionId : event.target.value
+  //   })
+  // }
 
   const {register, handleSubmit, watch, errors} = useForm();
 
@@ -61,6 +69,11 @@ export default function FormValidation() {
     float: 'right'
   };
 
+  // var elementPadding = {
+  //   padding: 15,
+  //   display: 'flex'
+  // };
+
   return (
     <div>
       {/* Image of modal header */}
@@ -77,6 +90,7 @@ export default function FormValidation() {
         <input name="lastName" ref={register({ required: true })}/>
         <br></br>
         <br></br>
+       
         Email*
         <input
           name="email"
@@ -116,6 +130,7 @@ export default function FormValidation() {
               name="react-tips"
               value="feedback"
               className="form-check-input"
+              // onChange={this.selectionChanged}
             />
             Feedback
           </label>
@@ -155,8 +170,8 @@ export default function FormValidation() {
           placeholder="Insert full URL here"
           multiline
           variant="outlined"
-          value={value1}
-          onChange={handleChange1}
+          value={link}
+          onChange={handleChangeLink}
         />
         <br></br>
         <br></br>
@@ -169,8 +184,8 @@ export default function FormValidation() {
           rows={5}
           placeholder="For comments, questions, concerns, etc."
           variant="outlined"
-          value={value2}
-          onChange={handleChange2}
+          value={feedback}
+          onChange={handleChangeFeedback}
         />
         <br></br>
         <br></br>
@@ -184,8 +199,8 @@ export default function FormValidation() {
           rows={5}
           placeholder="Optional"
           variant="outlined"
-          value={value3}
-          onChange={handleChange3}
+          value={note}
+          onChange={handleChangeNote}
         />
         <br></br>
         <br></br>
