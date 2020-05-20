@@ -8,7 +8,12 @@ class BreadcrumbNavView extends Component {
     render() {
         return (
             // TODO
-            <p>Home -> Responses</p>
+            <div class="breadcrumb">
+                <a href="https://google.com"> Home </a>
+                {/* <span> -> </span>   */}
+                <p>&nbsp; -> &nbsp;</p>
+                <a href="https://google.com">{this.props.name}</a>
+            </div>
         )
     }
 }

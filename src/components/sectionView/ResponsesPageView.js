@@ -21,7 +21,7 @@ class PageView extends Component {
 
     return (
       <div>
-        <BreadcrumbNavView />
+        <BreadcrumbNavView name={this.props.sectionName}/>
         <Headliner name={this.props.sectionName} />
         {subsections}
         <SectionPageNavView />

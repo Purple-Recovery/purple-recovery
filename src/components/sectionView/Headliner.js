@@ -6,9 +6,9 @@ import React, {Component} from 'react';
 class Headliner extends Component {
   render() {
     return (
-      <div>
-        <h1 className="headliner">{this.props.name}</h1>
-        <img src="../../../public/img/purpleBar.jpg"></img>
+      <div className="headliner">
+        <h1>{this.props.name}</h1>
+        <img src="img/purpleBar.jpg" class="purpleBar"></img>
       </div>
     )
   } 
