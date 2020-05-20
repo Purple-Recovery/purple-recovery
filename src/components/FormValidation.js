@@ -1,22 +1,5 @@
 import React, {Component} from 'react';
 import { useForm } from 'react-hook-form';
-// import { render } from '@testing-library/react';
-// import DropdownButton from 'react-bootstrap/DropdownButton';
-import Form from 'react-bootstrap/Form';
-
-// if material ui is not already downloaded, use the following in terminal:
-// npm install @material-ui/core
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
-}));
 
 // Displays form fields and submit button. Utilizes the React Hook Form package 
 // to handle form validation and error display.
@@ -27,21 +10,10 @@ const useStyles = makeStyles((theme) => ({
 // post: displays form and errors for fields
 export default function FormValidation() {
   
-  const classes = useStyles();
-  // Text area values
-  const [link, setlink] = React.useState(''); // Link to Resource
-  const [feedback, setfeedback] = React.useState(''); // Feedback
-  const [note, setnote] = React.useState(''); // Notes
+  const {register, handleSubmit, watch, errors} = useForm();
 
-  // Text area set values
-  const handleChangeLink = (event) => {
-    setlink(event.target.value);  // Link to Resource
-  };
-  const handleChangeFeedback = (event) => {
-    setfeedback(event.target.value);  // Feedback
-  };
-  const handleChangeNote = (event) => {
-    setnote(event.target.value);  // Notes
+  const onSubmit = data => {
+    console.log(data);
   };
 
   // // handle feedback radio button value change
@@ -52,12 +24,6 @@ export default function FormValidation() {
   //   })
   // }
 
-  const {register, handleSubmit, watch, errors} = useForm();
-
-  const onSubmit = data => {
-    console.log(data);
-  };
-
   var submissionTextStyle = {
     padding: 20
   };
@@ -66,34 +32,29 @@ export default function FormValidation() {
     padding: 15,
     backgroundColor: 'white',
     border: 'none', 
-    float: 'right'
+    // float: 'right',
+    display: 'flex',
+    justifyContent: 'flex-end'
   };
 
-  // var elementPadding = {
-  //   padding: 15,
-  //   display: 'flex'
-  // };
-
   return (
-    <div>
+    <form onSubmit={handleSubmit(onSubmit)}>
       {/* Image of modal header */}
       <img src={require("./img/submission_text.png")} style={submissionTextStyle} alt="Submit a Resource, Feedback, or Note"/>
       
-      {/* First name, last name, email entry */}
-      <form onSubmit={handleSubmit(onSubmit)}>
-        First Name*
-        <input name="firstName" ref={register({ required: true })}/>
-        <br></br>
-        <br></br>
-
-        Last Name*
-        <input name="lastName" ref={register({ required: true })}/>
-        <br></br>
-        <br></br>
-       
-        Email*
-        <input
-          name="email"
+      {/* First name and last name entry */}
+      <p>First Name:</p>
+      <input type="text" placeholder="First name" name="First name" ref={register({required: true, maxLength: 30})} />
+      
+      <p>Last Name:</p>
+      <input type="text" placeholder="Last name" name="Last name" ref={register({required: true, maxLength: 100})} />
+      
+      {/* Email entry */}
+      <p>Email:</p>
+      <input
+          type="text" 
+          placeholder="Email"
+          name="Email"
           ref={
             register({
               required: true,
@@ -104,20 +65,19 @@ export default function FormValidation() {
             })
           }
         />
-        {errors.email && errors.email.message}
-        <br></br>
-        <br></br>
-
-        {/* Radio Buttons */}
-        <p>Select one of the following:</p>
+      {errors.email && errors.email.message}
+          
+      {/* Radio Buttons */}
+      <p>Select one of the following:</p>
         <div className="form-check">
           <label>
             <input
               type="radio"
-              name="react-tips"
-              value="resource"
-              checked={true}
+              name="Submission Type"
+              value="Resource"
+              // checked={true}
               className="form-check-input"
+              ref={register}
             />
             Resource
           </label>
@@ -127,90 +87,42 @@ export default function FormValidation() {
           <label>
             <input
               type="radio"
-              name="react-tips"
-              value="feedback"
+              name="Submission Type"
+              value="Feedback"
               className="form-check-input"
               // onChange={this.selectionChanged}
+              ref={register}
             />
             Feedback
           </label>
         </div> 
-        <br></br>
+      
+      {/* Resource dropdown */}
+      <p>Type of resource</p>
+      <select name="Type of resource" ref={register}>
+        <option value="Resources">Resources</option>
+        <option value="Responses">Responses</option>
+        <option value="Community">Community</option>
+        <option value="Trackers">Trackers and Dashboards</option>
+        <option value="Other">Other</option>
+      </select>
 
-        {/* Resource dropdown */}
-        {/* <Dropdown>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            Type of Resource
-          </Dropdown.Toggle>
+      {/* Link to Resource text field */}
+      <p>Link resource</p>
+      <input type="url" placeholder="Link to Resource" name="Link to Resource" ref={register({pattern:{value:"https?://.+", message:'Must be a valid URL'}})} />
+      
+      {/* Feedback text field */}
+      <p>Feedback</p>
+      <input type="text" placeholder="Feedback" name="Feedback" ref={register} />
 
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/resources">Resources</Dropdown.Item>
-            <Dropdown.Item href="#/responses">Responses</Dropdown.Item>
-            <Dropdown.Item href="#/community">Community</Dropdown.Item>
-            <Dropdown.Item href="#/trackers">Trackers and Dashboards</Dropdown.Item>
-            <Dropdown.Item href="#/other">Other</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown> */}
-        <Form.Group controlId="exampleForm.ControlSelect1">
-          <Form.Label>Type of resource</Form.Label>
-          <Form.Control as="select">
-            <option>Resources</option>
-            <option>Responses</option>
-            <option>Community</option>
-            <option>Trackers</option>
-            <option>Other</option>
-          </Form.Control>
-        </Form.Group>
-        <br></br>
+      {/* Note (optional) text field */}
+      <p>Notes</p>
+      <input type="text" placeholder="Optional" name="Notes" ref={register} />
 
-        {/* Link to Resource text field */}
-        <TextField
-          id="outlined-textarea-Link"
-          label="Link to Resource"
-          placeholder="Insert full URL here"
-          multiline
-          variant="outlined"
-          value={link}
-          onChange={handleChangeLink}
-        />
-        <br></br>
-        <br></br>
-
-        {/* Feedback text field */}
-        <TextField
-          id="outlined-multiline-static-Feedback"
-          label="Feedback"
-          multiline
-          rows={5}
-          placeholder="For comments, questions, concerns, etc."
-          variant="outlined"
-          value={feedback}
-          onChange={handleChangeFeedback}
-        />
-        <br></br>
-        <br></br>
-
-
-        {/* Note (optional) text field */}
-        <TextField
-          id="outlined-multiline-static-Notes"
-          label="Notes"
-          multiline
-          rows={5}
-          placeholder="Optional"
-          variant="outlined"
-          value={note}
-          onChange={handleChangeNote}
-        />
-        <br></br>
-        <br></br>
-
-        {/* Submission button */}
-        <button type="submit" style={submissionButtonStyle}>
+      {/* Submission button */}
+      <button type="submit" style={submissionButtonStyle}>
           <img src={require("./img/submit.png")} alt="Submit resource button"/>
-        </button>
-
-      </form>
-    </div>
+      </button>
+    </form>
   );
 }
