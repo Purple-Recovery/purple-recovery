@@ -17,6 +17,7 @@ export default function FormValidation() {
     setDisabled(!disabled);
     console.log("Feedback option selected");
   }
+
   function handleResourceClick() {
     setDisabled(false);
     console.log("Resource option selected");
@@ -52,25 +53,27 @@ export default function FormValidation() {
       {/* Image of modal header */}
       <img src={require("./img/submission_text.png")} style={submissionTextStyle} alt="Submit a Resource or Feedback" />
 
-      <div class="row">
-        <div class="column">
+      <div className="row">
+        <div className="column">
           {/* First name and last name entry */}
           <p id="name-field">First Name:</p>
-          <input type="text" placeholder="First name" name="First name" ref={register({ required: true, maxLength: 30 })} />
+          <input name="firstName" type="text" placeholder="First name" ref={register({ required: true, maxLength: 30 })} />
+          {errors.firstName && "First name is required"}
         </div>
 
-        <div class="column">
+        <div className="column">
           <p id="name-field">Last Name:</p>
-          <input type="text" placeholder="Last name" name="Last name" ref={register({ required: true, maxLength: 100 })} />
+          <input name="lastName" type="text" placeholder="Last name" ref={register({ required: true, maxLength: 100 })} />
+          {errors.lastName && "Last name is required"}
         </div>
 
-        <div class="column">
+        <div className="column">
           {/* Email entry */}
           <p id="name-field">Email:</p>
           <input
+            name="email"
             type="text"
             placeholder="Email"
-            name="Email"
             ref={
               register({
                 required: true,
@@ -87,8 +90,8 @@ export default function FormValidation() {
 
       {/* Radio Buttons */}
       <p>Select one of the following:</p>
-      <div class="row">
-        <div class="column">
+      <div className="row">
+        <div className="column">
           <div className="form-check">
             <label>
               <input
@@ -104,7 +107,7 @@ export default function FormValidation() {
           </div>
         </div>
 
-        <div class="column">
+        <div className="column">
           <div className="form-check">
             <label>
               <input
@@ -121,8 +124,8 @@ export default function FormValidation() {
         </div>
       </div>
 
-      <div class="row">
-        <div class="column">
+      <div className="row">
+        <div className="column">
           {/* Resource dropdown */}
           <p>Type of resource</p>
           <select name="Type of resource" disabled={disabled} ref={register}>
@@ -134,23 +137,37 @@ export default function FormValidation() {
           </select>
         </div>
 
-        <div class="column">
+        <div className="column">
           {/* Feedback text field */}
           <p>Feedback</p>
           <input type="text" placeholder="Feedback" disabled={!disabled} name="Feedback" ref={register} />
         </div>
       </div>
 
-      <div class="row">
-        <div class="column">
+      <div className="row">
+        <div className="column">
           {/* Link to Resource text field */}
-          <p>Link resource</p>
-          <input type="url" placeholder="Link to Resource" disabled={disabled} name="Link to Resource" ref={register({ pattern: { value: "https?://.+", message: 'Must be a valid URL' } })} />
+          <p>Resource Link</p>
+          <input
+            name="link"
+            type="url"
+            placeholder="Link to Resource"
+            disabled={disabled}
+            ref={
+              register({
+                pattern: {
+                  value: "https?://.+",
+                  message: 'Must be a valid URL'
+                }
+              })
+            }
+          />
+          {errors.link && errors.link.message}
         </div>
       </div>
 
-      <div class="row">
-        <div class="column">
+      <div className="row">
+        <div className="column">
           {/* Note (optional) text field */}
           <p>Notes</p>
           <input type="text" placeholder="Optional" disabled={disabled} name="Notes" ref={register} />
