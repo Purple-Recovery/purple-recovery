@@ -108,7 +108,7 @@ export default function FormValidation() {
       
       {/* Resource dropdown */}
       <p>Type of resource</p>
-      <select name="Type of resource" ref={register}>
+      <select name="Type of resource" disabled={disabled} ref={register}>
         <option value="Resources">Resources</option>
         <option value="Responses">Responses</option>
         <option value="Community">Community</option>
