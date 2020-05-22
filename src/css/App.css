@@ -87,3 +87,16 @@ p {
   clear: both;
 }
 
+/* Error message styling */
+.error-message {
+  color: #ed4747;
+  font-size: 10pt;
+}
+
+/* Input label styling */
+.form-label {
+  font-weight: normal;
+  font-size: 12pt;
+  padding: 0px;
+  padding-top: 10px;
+}

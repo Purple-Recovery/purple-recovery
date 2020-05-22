@@ -23,7 +23,7 @@ export default function FormValidation() {
     console.log("Resource option selected");
   }
 
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = data => {
     console.log(data);
@@ -40,7 +40,8 @@ export default function FormValidation() {
   };
 
   var submissionButtonStyle = {
-    padding: 15,
+    padding: '15px',
+    radius: '10px',
     backgroundColor: 'white',
     border: 'none',
     float: 'right',
@@ -54,22 +55,34 @@ export default function FormValidation() {
       <img src={require("./img/submission_text.png")} style={submissionTextStyle} alt="Submit a Resource or Feedback" />
 
       <div className="row">
+
+        {/* First name input */}
         <div className="column">
-          {/* First name and last name entry */}
-          <p id="name-field">First Name:</p>
+          <label className="form-label">First Name:</label>
           <input name="firstName" type="text" placeholder="First name" ref={register({ required: true, maxLength: 30 })} />
-          {errors.firstName && "First name is required"}
+          {errors.firstName && errors.firstName.type === "required" && (
+            <div className="error-message">Required</div>
+          )}
+          {errors.firstName && errors.firstName.type === "maxLength" && (
+            <div className="error-message">Can be max 30 characters long</div>
+          )}
         </div>
 
+        {/* Last name input */}
         <div className="column">
-          <p id="name-field">Last Name:</p>
-          <input name="lastName" type="text" placeholder="Last name" ref={register({ required: true, maxLength: 100 })} />
-          {errors.lastName && "Last name is required"}
+          <label className="form-label">Last Name:</label>
+          <input name="lastName" type="text" placeholder="Last name" ref={register({ required: true, maxLength: 80 })} />
+          {errors.lastName && errors.lastName.type === "required" && (
+            <div className="error-message">Required</div>
+          )}
+          {errors.lastName && errors.lastName.type === "maxLength" && (
+            <div className="error-message">Can be max 80 characters long</div>
+          )}
         </div>
 
+        {/* Email input */}
         <div className="column">
-          {/* Email entry */}
-          <p id="name-field">Email:</p>
+          <label className="form-label">Email:</label>
           <input
             name="email"
             type="text"
@@ -78,13 +91,18 @@ export default function FormValidation() {
               register({
                 required: true,
                 pattern: {
-                  value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                  message: 'Must be a vaild email'
+                  value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                  // message: 'Must be a vaild email'
                 }
               })
             }
           />
-          {errors.email && errors.email.message}
+          {errors.email && errors.email.type === "required" && (
+            <div className="error-message">Required</div>
+          )}
+          {errors.email && errors.email.type === "pattern" && (
+            <div className="error-message">Must be a valid email</div>
+          )}
         </div>
       </div>
 
@@ -95,6 +113,7 @@ export default function FormValidation() {
           <div className="form-check">
             <label>
               <input
+                defaultChecked="true"
                 type="radio"
                 name="Submission Type"
                 value="Resource"
@@ -125,9 +144,9 @@ export default function FormValidation() {
       </div>
 
       <div className="row">
+        {/* Resource dropdown input */}
         <div className="column">
-          {/* Resource dropdown */}
-          <p>Type of resource</p>
+          <label className="form-label">Type of Resource:</label>
           <select name="Type of resource" disabled={disabled} ref={register}>
             <option value="Resources">Resources</option>
             <option value="Responses">Responses</option>
@@ -137,17 +156,17 @@ export default function FormValidation() {
           </select>
         </div>
 
+        {/* Feedback text input */}
         <div className="column">
-          {/* Feedback text field */}
-          <p>Feedback</p>
+          <label className="form-label">Feedback:</label>
           <input type="text" placeholder="Feedback" disabled={!disabled} name="Feedback" ref={register} />
         </div>
       </div>
 
       <div className="row">
+        {/* Resourse Link input */}
         <div className="column">
-          {/* Link to Resource text field */}
-          <p>Resource Link</p>
+          <label className="form-label">Link to Resource:</label>
           <input
             name="link"
             type="url"
@@ -156,26 +175,27 @@ export default function FormValidation() {
             ref={
               register({
                 pattern: {
-                  value: "https?://.+",
-                  message: 'Must be a valid URL'
+                  value: "https?://.+"
                 }
               })
             }
           />
-          {errors.link && errors.link.message}
+          {errors.link && errors.link.type === "pattern" && (
+            <div className="error-message">Must be a valid URL</div>
+          )}
         </div>
       </div>
 
       <div className="row">
+        {/* Notes (optional) text field */}
         <div className="column">
-          {/* Note (optional) text field */}
-          <p>Notes</p>
+          <label className="form-label">Notes:</label>
           <input type="text" placeholder="Optional" disabled={disabled} name="Notes" ref={register} />
         </div>
       </div>
 
 
-      {/* Submission button */}
+      {/* Submit button */}
       <button type="submit" style={submissionButtonStyle}>
         <img src={require("./img/submit.png")} alt="Submit resource button" />
       </button>
