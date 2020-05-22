@@ -12,8 +12,13 @@ export default function FormValidation() {
 
   const [disabled, setDisabled] = useState(false);
   
-  function handleClick() {
+  function handleFeedbackClick() {
     setDisabled(!disabled);
+    console.log("Feedback option selected");
+  }
+  function handleResourceClick() {
+    setDisabled(false);
+    console.log("Resource option selected");
   }
   
   const {register, handleSubmit, watch, errors} = useForm();
@@ -44,7 +49,7 @@ export default function FormValidation() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {/* Image of modal header */}
-      <img src={require("./img/submission_text.png")} style={submissionTextStyle} alt="Submit a Resource, Feedback, or Note"/>
+      <img src={require("./img/submission_text.png")} style={submissionTextStyle} alt="Submit a Resource or Feedback"/>
       
       {/* First name and last name entry */}
       <p>First Name:</p>
@@ -79,8 +84,7 @@ export default function FormValidation() {
               type="radio"
               name="Submission Type"
               value="Resource"
-              // checked={this.state.option === "Resource"}
-              // onChange={this.handleChange}
+              onClick={handleResourceClick}
               className="form-check-input"
               ref={register}
             />
@@ -95,9 +99,7 @@ export default function FormValidation() {
               name="Submission Type"
               value="Feedback"
               className="form-check-input"
-              // checked={this.state.option === "Feedback"}
-              onClick={handleClick}
-              // onChange={this.handleChange}
+              onClick={handleFeedbackClick}
               ref={register}
             />
             Feedback
