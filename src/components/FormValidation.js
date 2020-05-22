@@ -21,7 +21,7 @@ export default function FormValidation() {
   const onSubmit = data => {
     console.log(data);
     alert(`Thank you for sharing! Your submission has been logged, you may close this form now.`);
-    // return(
+        // return(
     //   <Fragment>
     //     <img src={require("./img/success.png")} alt="Submission succesful!"/>
     //   </Fragment>
