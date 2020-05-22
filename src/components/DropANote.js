@@ -104,7 +104,8 @@ class FormModalView extends Component {
     var closeStyle = {
       width: 50,
       height: 50, 
-      float: 'right'
+      position: 'absolute', 
+      right: 10
     };
 
     return (
