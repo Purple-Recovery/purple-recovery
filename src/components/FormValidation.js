@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment, useState} from 'react';
 import { useForm } from 'react-hook-form';
 
 // Displays form fields and submit button. Utilizes the React Hook Form package 
@@ -9,20 +9,24 @@ import { useForm } from 'react-hook-form';
 // pre: displays empty form
 // post: displays form and errors for fields
 export default function FormValidation() {
+
+  const [disabled, setDisabled] = useState(false);
+  
+  function handleClick() {
+    setDisabled(!disabled);
+  }
   
   const {register, handleSubmit, watch, errors} = useForm();
 
   const onSubmit = data => {
     console.log(data);
+    alert(`Thank you for sharing! Your submission has been logged, you may close this form now.`);
+    // return(
+    //   <Fragment>
+    //     <img src={require("./img/success.png")} alt="Submission succesful!"/>
+    //   </Fragment>
+    // );
   };
-
-  // // handle feedback radio button value change
-  //  selectionChanged = (event) => {
-  //   console.log(event.target.value);
-  //   this.setState({
-  //     selectedoptionId : event.target.value
-  //   })
-  // }
 
   var submissionTextStyle = {
     padding: 20
@@ -32,7 +36,7 @@ export default function FormValidation() {
     padding: 15,
     backgroundColor: 'white',
     border: 'none', 
-    // float: 'right',
+    float: 'right',
     display: 'flex',
     justifyContent: 'flex-end'
   };
@@ -75,7 +79,8 @@ export default function FormValidation() {
               type="radio"
               name="Submission Type"
               value="Resource"
-              // checked={true}
+              // checked={this.state.option === "Resource"}
+              // onChange={this.handleChange}
               className="form-check-input"
               ref={register}
             />
@@ -90,7 +95,9 @@ export default function FormValidation() {
               name="Submission Type"
               value="Feedback"
               className="form-check-input"
-              // onChange={this.selectionChanged}
+              // checked={this.state.option === "Feedback"}
+              onClick={handleClick}
+              // onChange={this.handleChange}
               ref={register}
             />
             Feedback
@@ -109,15 +116,15 @@ export default function FormValidation() {
 
       {/* Link to Resource text field */}
       <p>Link resource</p>
-      <input type="url" placeholder="Link to Resource" name="Link to Resource" ref={register({pattern:{value:"https?://.+", message:'Must be a valid URL'}})} />
+      <input type="url" placeholder="Link to Resource" disabled={disabled} name="Link to Resource" ref={register({pattern:{value:"https?://.+", message:'Must be a valid URL'}})} />
+      
+      {/* Note (optional) text field */}
+      <p>Notes</p>
+      <input type="text" placeholder="Optional" disabled={disabled} name="Notes" ref={register} />
       
       {/* Feedback text field */}
       <p>Feedback</p>
-      <input type="text" placeholder="Feedback" name="Feedback" ref={register} />
-
-      {/* Note (optional) text field */}
-      <p>Notes</p>
-      <input type="text" placeholder="Optional" name="Notes" ref={register} />
+      <input type="text" placeholder="Feedback" disabled={!disabled} name="Feedback" ref={register} />
 
       {/* Submission button */}
       <button type="submit" style={submissionButtonStyle}>
