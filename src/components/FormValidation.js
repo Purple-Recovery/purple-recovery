@@ -1,22 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component, Fragment, useState } from 'react';
 import { useForm } from 'react-hook-form';
-// import { render } from '@testing-library/react';
-// import DropdownButton from 'react-bootstrap/DropdownButton';
-import Form from 'react-bootstrap/Form';
-
-// if material ui is not already downloaded, use the following in terminal:
-// npm install @material-ui/core
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
-}));
+import '../css/App.css';
 
 // Displays form fields and submit button. Utilizes the React Hook Form package 
 // to handle form validation and error display.
@@ -26,28 +10,28 @@ const useStyles = makeStyles((theme) => ({
 // pre: displays empty form
 // post: displays form and errors for fields
 export default function FormValidation() {
-  
-  const classes = useStyles();
-  // Text area values
-  const [value1, setValue1] = React.useState(''); // Link to Resource
-  const [value2, setValue2] = React.useState(''); // Feedback
-  const [value3, setValue3] = React.useState(''); // Notes
 
-  // Text area set values
-  const handleChange1 = (event) => {
-    setValue1(event.target.value);  // Link to Resource
-  };
-  const handleChange2 = (event) => {
-    setValue2(event.target.value);  // Feedback
-  };
-  const handleChange3 = (event) => {
-    setValue3(event.target.value);  // Notes
-  };
+  const [disabled, setDisabled] = useState(false);
 
-  const {register, handleSubmit, watch, errors} = useForm();
+  function handleFeedbackClick() {
+    setDisabled(!disabled);
+    console.log("Feedback option selected");
+  }
+  function handleResourceClick() {
+    setDisabled(false);
+    console.log("Resource option selected");
+  }
+
+  const { register, handleSubmit, watch, errors } = useForm();
 
   const onSubmit = data => {
     console.log(data);
+    alert(`Thank you for sharing! Your submission has been logged, you may close this form now.`);
+    // return(
+    //   <Fragment>
+    //     <img src={require("./img/success.png")} alt="Submission succesful!"/>
+    //   </Fragment>
+    // );
   };
 
   var submissionTextStyle = {
@@ -57,145 +41,127 @@ export default function FormValidation() {
   var submissionButtonStyle = {
     padding: 15,
     backgroundColor: 'white',
-    border: 'none', 
-    float: 'right'
+    border: 'none',
+    float: 'right',
+    display: 'flex',
+    justifyContent: 'flex-end'
   };
 
   return (
-    <div>
+    <form id="form" onSubmit={handleSubmit(onSubmit)}>
       {/* Image of modal header */}
-      <img src={require("./img/submission_text.png")} style={submissionTextStyle} alt="Submit a Resource, Feedback, or Note"/>
-      
-      {/* First name, last name, email entry */}
-      <form onSubmit={handleSubmit(onSubmit)}>
-        First Name*
-        <input name="firstName" ref={register({ required: true })}/>
-        <br></br>
-        <br></br>
+      <img src={require("./img/submission_text.png")} style={submissionTextStyle} alt="Submit a Resource or Feedback" />
 
-        Last Name*
-        <input name="lastName" ref={register({ required: true })}/>
-        <br></br>
-        <br></br>
-        Email*
-        <input
-          name="email"
-          ref={
-            register({
-              required: true,
-              pattern: {
-                value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: 'Must be a vaild email'
-              }
-            })
-          }
-        />
-        {errors.email && errors.email.message}
-        <br></br>
-        <br></br>
-
-        {/* Radio Buttons */}
-        <p>Select one of the following:</p>
-        <div className="form-check">
-          <label>
-            <input
-              type="radio"
-              name="react-tips"
-              value="resource"
-              checked={true}
-              className="form-check-input"
-            />
-            Resource
-          </label>
+      <div class="row">
+        <div class="column">
+          {/* First name and last name entry */}
+          <p id="name-field">First Name:</p>
+          <input type="text" placeholder="First name" name="First name" ref={register({ required: true, maxLength: 30 })} />
         </div>
 
-        <div className="form-check">
-          <label>
-            <input
-              type="radio"
-              name="react-tips"
-              value="feedback"
-              className="form-check-input"
-            />
-            Feedback
-          </label>
-        </div> 
-        <br></br>
+        <div class="column">
+          <p id="name-field">Last Name:</p>
+          <input type="text" placeholder="Last name" name="Last name" ref={register({ required: true, maxLength: 100 })} />
+        </div>
 
-        {/* Resource dropdown */}
-        {/* <Dropdown>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            Type of Resource
-          </Dropdown.Toggle>
+        <div class="column">
+          {/* Email entry */}
+          <p id="name-field">Email:</p>
+          <input
+            type="text"
+            placeholder="Email"
+            name="Email"
+            ref={
+              register({
+                required: true,
+                pattern: {
+                  value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                  message: 'Must be a vaild email'
+                }
+              })
+            }
+          />
+          {errors.email && errors.email.message}
+        </div>
+      </div>
 
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/resources">Resources</Dropdown.Item>
-            <Dropdown.Item href="#/responses">Responses</Dropdown.Item>
-            <Dropdown.Item href="#/community">Community</Dropdown.Item>
-            <Dropdown.Item href="#/trackers">Trackers and Dashboards</Dropdown.Item>
-            <Dropdown.Item href="#/other">Other</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown> */}
-        <Form.Group controlId="exampleForm.ControlSelect1">
-          <Form.Label>Type of resource</Form.Label>
-          <Form.Control as="select">
-            <option>Resources</option>
-            <option>Responses</option>
-            <option>Community</option>
-            <option>Trackers</option>
-            <option>Other</option>
-          </Form.Control>
-        </Form.Group>
-        <br></br>
+      {/* Radio Buttons */}
+      <p>Select one of the following:</p>
+      <div class="row">
+        <div class="column">
+          <div className="form-check">
+            <label>
+              <input
+                type="radio"
+                name="Submission Type"
+                value="Resource"
+                onClick={handleResourceClick}
+                className="form-check-input"
+                ref={register}
+              />
+              Resource
+            </label>
+          </div>
+        </div>
 
-        {/* Link to Resource text field */}
-        <TextField
-          id="outlined-textarea-Link"
-          label="Link to Resource"
-          placeholder="Insert full URL here"
-          multiline
-          variant="outlined"
-          value={value1}
-          onChange={handleChange1}
-        />
-        <br></br>
-        <br></br>
+        <div class="column">
+          <div className="form-check">
+            <label>
+              <input
+                type="radio"
+                name="Submission Type"
+                value="Feedback"
+                className="form-check-input"
+                onClick={handleFeedbackClick}
+                ref={register}
+              />
+              Feedback
+            </label>
+          </div>
+        </div>
+      </div>
 
-        {/* Feedback text field */}
-        <TextField
-          id="outlined-multiline-static-Feedback"
-          label="Feedback"
-          multiline
-          rows={5}
-          placeholder="For comments, questions, concerns, etc."
-          variant="outlined"
-          value={value2}
-          onChange={handleChange2}
-        />
-        <br></br>
-        <br></br>
+      <div class="row">
+        <div class="column">
+          {/* Resource dropdown */}
+          <p>Type of resource</p>
+          <select name="Type of resource" disabled={disabled} ref={register}>
+            <option value="Resources">Resources</option>
+            <option value="Responses">Responses</option>
+            <option value="Community">Community</option>
+            <option value="Trackers">Trackers and Dashboards</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="column">
+          {/* Feedback text field */}
+          <p>Feedback</p>
+          <input type="text" placeholder="Feedback" disabled={!disabled} name="Feedback" ref={register} />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          {/* Link to Resource text field */}
+          <p>Link resource</p>
+          <input type="url" placeholder="Link to Resource" disabled={disabled} name="Link to Resource" ref={register({ pattern: { value: "https?://.+", message: 'Must be a valid URL' } })} />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          {/* Note (optional) text field */}
+          <p>Notes</p>
+          <input type="text" placeholder="Optional" disabled={disabled} name="Notes" ref={register} />
+        </div>
+      </div>
 
 
-        {/* Note (optional) text field */}
-        <TextField
-          id="outlined-multiline-static-Notes"
-          label="Notes"
-          multiline
-          rows={5}
-          placeholder="Optional"
-          variant="outlined"
-          value={value3}
-          onChange={handleChange3}
-        />
-        <br></br>
-        <br></br>
-
-        {/* Submission button */}
-        <button type="submit" style={submissionButtonStyle}>
-          <img src={require("./img/submit.png")} alt="Submit resource button"/>
-        </button>
-
-      </form>
-    </div>
+      {/* Submission button */}
+      <button type="submit" style={submissionButtonStyle}>
+        <img src={require("./img/submit.png")} alt="Submit resource button" />
+      </button>
+    </form>
   );
 }

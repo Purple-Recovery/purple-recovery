@@ -93,3 +93,54 @@ a {
     transform: rotate(360deg);
   }
 }
+
+#show-form {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-color: rgb(51, 0, 111, 0.8);
+}
+
+#form {
+  font-family: 'Open Sans', sans-serif;
+  padding: 20
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 30%;
+  padding-left: 40px;
+  border: none;
+  border: 0;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {
+  margin: 0 -5px;
+}
+
+p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 25px;
+  padding-left: 20px;
+  padding-bottom: 0px;
+  padding-top: 20px;
+}
+
+#name-field {
+  padding-top: 0px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: none;
+  clear: both;
+}
+

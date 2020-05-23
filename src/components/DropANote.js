@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import FormValidation from './FormValidation.js';
 import Modal from 'react-bootstrap/Modal'
+import '../css/App.css';
 
 // Model for feedback data
 class DropANoteModel extends Component {
@@ -83,7 +84,7 @@ class DropANoteView extends Component {
     };
 
     return (
-      <img onClick={this.props.showModal} src={require("./img/dropanote.png")} style={imgStyle} alt="Submit a resource to be added"/>
+      <img onClick={this.props.showModal} src={require("./img/dropanote.png")} style={imgStyle} alt="Submit feedback or a resource to be added"/>
     );
   } 
 }
@@ -103,11 +104,12 @@ class FormModalView extends Component {
     var closeStyle = {
       width: 50,
       height: 50, 
-      float: 'right'
+      position: 'absolute', 
+      right: 10
     };
 
     return (
-      <div>
+      <div id="show-form">
           <Modal.Dialog  size="lg">
             <Modal.Header>
               <img onClick={this.props.hide} src={require("./img/close.png")} style={closeStyle} alt="Close resource submission page"/>
