@@ -23,8 +23,7 @@ class DropANoteController extends Component {
 
     this.state = {
       showModal: false,
-      showSuccess: false,
-      formData: null
+      showSuccess: false
     }
   }
 
@@ -39,14 +38,12 @@ class DropANoteController extends Component {
   // pre: modal is not visible
   // post: modal is visible
   showModal = () => {
-    console.log('Modal show');
     this.setState({
       showModal: true
     });
   }
 
   hideModal = () => {
-    console.log('Modal hidden');
     this.setState({
       showModal: false
     });
@@ -61,14 +58,12 @@ class DropANoteController extends Component {
   // On confirmation from FormSubmitController, render the
   // SubmitSuccessView
   showSuccess = () => {
-    console.log('Success shown');
     this.setState({
       showSuccess: true
     });
   }
 
   hideSuccess = () => {
-    console.log('Success hidden');
     this.setState({
       showSuccess: false
     });
