@@ -9,7 +9,7 @@ import '../css/App.css';
 //
 // pre: displays empty form
 // post: displays form and errors for fields
-export default function FormValidation() {
+export default function FormValidation(props) {
 
   const [disabled, setDisabled] = useState(false);
 
@@ -27,7 +27,7 @@ export default function FormValidation() {
 
   const onSubmit = data => {
     console.log(data);
-    alert(`Thank you for sharing! Your submission has been logged, you may close this form now.`);
+    props.handleSuccess();
   };
 
   var submissionTextStyle = {
