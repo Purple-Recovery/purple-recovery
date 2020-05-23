@@ -84,7 +84,9 @@ class DropANoteView extends Component {
     };
 
     return (
+      <div id="drop-view">
       <img onClick={this.props.showModal} src={require("./img/dropanote.png")} style={imgStyle} alt="Submit feedback or a resource to be added"/>
+      </div>
     );
   } 
 }
@@ -92,10 +94,6 @@ class DropANoteView extends Component {
 // Displays submission form modal
 // Utilizes FormValidation hook to display fields and errors
 class FormModalView extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render () {
     if (!this.props.show) {
       return null;

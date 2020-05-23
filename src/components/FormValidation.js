@@ -1,4 +1,4 @@
-import React, { Component, Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import '../css/App.css';
 
@@ -28,11 +28,6 @@ export default function FormValidation() {
   const onSubmit = data => {
     console.log(data);
     alert(`Thank you for sharing! Your submission has been logged, you may close this form now.`);
-    // return(
-    //   <Fragment>
-    //     <img src={require("./img/success.png")} alt="Submission succesful!"/>
-    //   </Fragment>
-    // );
   };
 
   var submissionTextStyle = {
@@ -92,7 +87,6 @@ export default function FormValidation() {
                 required: true,
                 pattern: {
                   value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                  // message: 'Must be a vaild email'
                 }
               })
             }
@@ -170,7 +164,7 @@ export default function FormValidation() {
           <input
             name="link"
             type="url"
-            placeholder="Link to Resource"
+            placeholder="Enter a URL"
             disabled={disabled}
             ref={
               register({
@@ -197,7 +191,7 @@ export default function FormValidation() {
 
       {/* Submit button */}
       <button type="submit" style={submissionButtonStyle}>
-        <img src={require("./img/submit.png")} alt="Submit resource button" />
+        <img src={require("./img/submit.png")} alt="Submit button" />
       </button>
     </form>
   );

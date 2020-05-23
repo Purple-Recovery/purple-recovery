@@ -37,14 +37,19 @@
   }
 }
 
+#drop-view {
+  z-index: 0;
+}
+
 #show-form {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -1;
-  background-color: rgb(51, 0, 111, 0.8);
+  z-index: 1;
+  backdrop-filter: blur(5px);
+  /* background-color: rgb(51, 0, 111, 0.8); */
 }
 
 #form {
@@ -99,4 +104,8 @@ p {
   font-size: 12pt;
   padding: 0px;
   padding-top: 10px;
+}
+
+input, select {
+  padding: 5px;
 }
