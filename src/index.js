@@ -4,8 +4,6 @@ import App from './components/App';
 
 // Firebase imports
 import firebase from 'firebase/app';
-// import 'firebase/auth'; 
-import 'firebase/database';
 
 // CSS imports
 import './css/index.css';
