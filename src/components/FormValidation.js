@@ -27,7 +27,7 @@ export default function FormValidation(props) {
 
   const onSubmit = data => {
     console.log(data);
-    props.handleSuccess();
+    props.handleSuccess(data);
   };
 
   var submissionTextStyle = {
@@ -109,7 +109,7 @@ export default function FormValidation(props) {
               <input
                 defaultChecked="true"
                 type="radio"
-                name="Submission Type"
+                name="submissionType"
                 value="Resource"
                 onClick={handleResourceClick}
                 className="form-check-input"
@@ -125,7 +125,7 @@ export default function FormValidation(props) {
             <label>
               <input
                 type="radio"
-                name="Submission Type"
+                name="submissionType"
                 value="Feedback"
                 className="form-check-input"
                 onClick={handleFeedbackClick}
@@ -141,7 +141,7 @@ export default function FormValidation(props) {
         {/* Resource dropdown input */}
         <div className="column">
           <label className="form-label">Type of Resource:</label>
-          <select name="Type of resource" disabled={disabled} ref={register}>
+          <select name="resourceType" disabled={disabled} ref={register}>
             <option value="Resources">Resources</option>
             <option value="Responses">Responses</option>
             <option value="Community">Community</option>
@@ -153,7 +153,7 @@ export default function FormValidation(props) {
         {/* Feedback text input */}
         <div className="column">
           <label className="form-label">Feedback:</label>
-          <input type="text" placeholder="Feedback" disabled={!disabled} name="Feedback" ref={register} />
+          <input type="text" placeholder="Feedback" disabled={!disabled} name="feedback" ref={register} />
         </div>
       </div>
 
@@ -184,7 +184,7 @@ export default function FormValidation(props) {
         {/* Notes (optional) text field */}
         <div className="column">
           <label className="form-label">Notes:</label>
-          <input type="text" placeholder="Optional" disabled={disabled} name="Notes" ref={register} />
+          <input type="text" placeholder="Optional" disabled={disabled} name="notes" ref={register} />
         </div>
       </div>
 

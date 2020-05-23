@@ -2,42 +2,38 @@ import React, {Component} from 'react';
 import FormValidation from './FormValidation.js';
 import Modal from 'react-bootstrap/Modal';
 
+// Firebase
+import firebase from 'firebase/app';
+import database from 'firebase/database';
+
 // CSS
 import '../css/App.css';
 
 // Model for feedback data
 class DropANoteModel extends Component {
-
-  // pre: Accepts Strings for name, email, resource name, resource type, url,
-  //      and additional feedback
-  // post: saves data as message to Firebase
-  saveFeedback(name, email, resource, resourceType, url, feedback) {
-
-  }
-  
+ 
 }
-
-// Called by FormValidation. Passes data to DropANoteModel.saveFeedback()
-// and waits for confirmation
-/*class FormSubmitController extends Component() {
-
-  // pre: sends feedback data as arguments to DropeANoteModel.saveFeedback()
-  // post: communicates to DropANoteController to display SubmitSuccessView
-  sendFeedback() {}
-
-} */
 
 // Handles the display of the DropANoteView, FormModalView and
 // SubmitSuccessView
 class DropANoteController extends Component {
   constructor(props) {
     super(props);
+    this.messagesRef = firebase.database().ref('messages');
+
     this.state = {
       showModal: false,
-      showSuccess: false
+      showSuccess: false,
+      formData: null
     }
   }
-  
+
+  // pre: Accepts object of form data
+  // post: saves data as message to Firebase
+  saveFeedback = (formData) => {
+    var message = this.messagesRef.push();
+    message.set({formData});
+  }
 
   // On button click, display FormModalView
   // pre: modal is not visible
@@ -56,8 +52,9 @@ class DropANoteController extends Component {
     });
   }
 
-  handleSuccess = () => {
+  handleSuccess = (data) => {
     this.hideModal();
+    this.saveFeedback(data);
     this.showSuccess();
   }
 

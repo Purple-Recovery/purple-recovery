@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 
-// CSS imports
-import './css/index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 // Firebase imports
 import firebase from 'firebase/app';
 // import 'firebase/auth'; 
-// import 'firebase/database';
+import 'firebase/database';
+
+// CSS imports
+import './css/index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Firebase config
 var config = {
