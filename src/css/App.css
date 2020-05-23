@@ -11,9 +11,10 @@ a {
   font-family: 'Open Sans', sans-serif;
 }
 
-.breadcrumb {
+.ourBreadcrumb {
   margin: 15px;
   margin-left: 40px;
+  background-color: none;
 }
 
 .purpleBar {
@@ -43,7 +44,7 @@ a {
 }
 
 
-.linkCluster {
+.linkCluster, .link {
   margin: 15px;
   margin-left: 40px;
 }
@@ -144,3 +145,6 @@ p {
   clear: both;
 }
 
+.breadcrumbArrow {
+  padding: 0px;
+}

@@ -7,11 +7,9 @@ import React, {Component} from 'react';
 class BreadcrumbNavView extends Component {
     render() {
         return (
-            // TODO
-            <div class="breadcrumb">
+            <div class="ourBreadcrumb">
                 <a href="https://google.com"> Home </a>
-                {/* <span> -> </span>   */}
-                <p>&nbsp; -> &nbsp;</p>
+                <p class="breadcrumbArrow">&nbsp; &#8594; &nbsp;</p>
                 <a href="https://google.com">{this.props.name}</a>
             </div>
         )

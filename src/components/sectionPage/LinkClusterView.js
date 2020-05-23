@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class LinkCluster extends Component {
+class LinkClusterView extends Component {
   render() {
     let links = [];
     for (let link of this.props.links) {
@@ -21,4 +21,4 @@ class LinkCluster extends Component {
   }
 }
 
-export default LinkCluster;
+export default LinkClusterView;
