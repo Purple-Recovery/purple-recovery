@@ -142,4 +142,4 @@ class SubmitSuccessView extends Component {
 
 }
 
-export {DropANoteModel, DropANoteController/*, DropANoteView, FormModalView, SubmitSuccessView, FormSubmitController*/};
+export {DropANoteController};
