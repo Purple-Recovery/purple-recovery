@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 
 // Firebase
 import firebase from 'firebase/app';
+import database from 'firebase/database';
 
 // CSS
 import '../css/App.css';
