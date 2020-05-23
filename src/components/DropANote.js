@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import FormValidation from './FormValidation.js';
-import Modal from 'react-bootstrap/Modal'
+import Modal from 'react-bootstrap/Modal';
+
+// CSS
 import '../css/App.css';
 
 // Model for feedback data
