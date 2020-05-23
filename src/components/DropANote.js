@@ -125,15 +125,15 @@ class FormModalView extends Component {
 class SubmitSuccessView extends Component {
   render () {
     return (
-      <Modal show={this.props.show} onHide={this.props.hide}>
+      <Modal show={this.props.show} onHide={this.props.hide} className="modal-blur" size="lg">
         <Modal.Header>
           <Modal.Title />
           <button onClick={this.props.hide} className="close-button">
-            <img src={require("./img/close.png")} alt="Close form"/>
+            <img src={require("./img/close.png")} alt="Close form button"/>
           </button>
         </Modal.Header>
         <Modal.Body>
-          Form has been submitted successfully! Thank you for sharing
+        <img className="submission-success-img" src={require("./img/success.png")} alt="Form has been submitted successfully!"/>
         </Modal.Body>
       </Modal>
     );

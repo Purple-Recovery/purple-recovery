@@ -37,10 +37,16 @@
   }
 }
 
-.modal-blur {
-  backdrop-filter: blur(5px);
+.submission-success-img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
 
-  /* background-color: rgb(51, 0, 111, 0.8); */
+.modal-blur {
+  backdrop-filter: blur(2px);
+  background-color: rgb(51, 0, 111, 0.5); 
 }
 
 .close-button {
@@ -51,14 +57,14 @@
 
 #form {
   font-family: 'Open Sans', sans-serif;
-  padding: 20
+  padding: 20;
 }
 
-/* Float four columns side by side */
+/* Float columns side by side */
 .column {
   float: left;
   width: 30%;
-  padding-left: 40px;
+  padding-left: 45px;
   border: none;
   border: 0;
 }

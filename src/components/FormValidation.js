@@ -153,7 +153,7 @@ export default function FormValidation(props) {
         {/* Feedback text input */}
         <div className="column">
           <label className="form-label">Feedback:</label>
-          <input type="text" placeholder="Feedback" disabled={!disabled} name="feedback" ref={register} />
+          <input type="text" placeholder="Comments, questions, etc." disabled={!disabled} name="feedback" ref={register} />
         </div>
       </div>
 
@@ -164,7 +164,7 @@ export default function FormValidation(props) {
           <input
             name="link"
             type="url"
-            placeholder="Enter a URL"
+            placeholder="Insert full URL (https://...)"
             disabled={disabled}
             ref={
               register({
