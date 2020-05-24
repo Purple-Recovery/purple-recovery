@@ -5,6 +5,7 @@ body {
 
 h1, h2 {
   color: #452e83;
+  font-family: 'Encode Sans', sans-serif;
 }
 
 a {
@@ -15,6 +16,8 @@ a {
   margin: 15px;
   margin-left: 40px;
   background-color: none;
+  white-space: nowrap;
+  margin-bottom: 0px;
 }
 
 .purpleBar {
@@ -43,7 +46,6 @@ a {
   font-size: 26px;
 }
 
-
 .linkCluster, .link {
   margin: 15px;
   margin-left: 40px;
@@ -52,7 +54,7 @@ a {
 .sectionPageNav {
   padding: 15px;
   position: fixed;
-  top: 80px;
+  top: 100px;
   right: 40px;
 }
 
@@ -147,4 +149,66 @@ p {
 
 .breadcrumbArrow {
   padding: 0px;
+  margin-bottom: 0px;
+}
+
+.ourBreadcrumb > a, .ourBreadcrumb > p {
+  display: inline-block;
+  padding-bottom: 0px;
+}
+
+.mainHeader {
+  padding: 15px;
+  margin-left: 25px;
+}
+
+.mainHeaderMain {
+  font-size: 34px;
+  /* margin: 15px; */
+}
+
+.mainHeaderSubtitle {
+  font-size: 20px;
+  color: #452e83;
+  font-family: 'Encode Sans', sans-serif;
+  padding: 0px; 
+  /* margin: 15px; */
+}
+
+.goldBar {
+  width: 500px;
+  height: 25px;
+  position: fixed;
+  right: 0px;
+  top: 20px;
+}
+
+.bannerText {
+  position: fixed;
+  right: 70px;
+  top: 20px;
+}
+
+
+/* Stuff for dashboard layout */ 
+html, body, #root, .homepage {
+  height: 100%;
+}
+
+.homepage {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.section {
+  outline-style: solid;
+  color: #b7a57a;
+}
+
+.h-90 {
+  height: 90%
+}
+
+.h-10 {
+  height: 10%
 }

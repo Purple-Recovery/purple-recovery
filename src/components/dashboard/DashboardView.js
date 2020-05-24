@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PageView from "../sectionPage/PageView"
+import HomeView from "./HomeView"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 // This component displays the HeaderView and SectionViews
@@ -87,9 +88,8 @@ class DashboardView extends Component {
 
   render() {
     return (
-      <Router>
-        <div>
-          <nav>
+      <Router className="h-90">
+-          {/* <nav>
             <ul>
               <li>
                 <Link to="/">Home</Link>
@@ -105,7 +105,7 @@ class DashboardView extends Component {
                 <Link to="/community">Community</Link>
               </li>
             </ul>
-          </nav>
+          </nav> */}
           <Switch>
             <Route path="/resources">
                 <PageView sectionName="RESOURCES" subsections={this.resourcesLinks}/>
@@ -117,11 +117,10 @@ class DashboardView extends Component {
                 <PageView sectionName="COMMUNITY" links={this.communityLinks}/>
             </Route>
             <Route path="/">
-              <p>Home</p>
+                <HomeView></HomeView>
             </Route>
           </Switch>
-        </div>
-      </Router>
+-      </Router>
     );
   }
 }
