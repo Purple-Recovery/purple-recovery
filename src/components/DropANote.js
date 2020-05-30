@@ -1,60 +1,72 @@
 import React, {Component} from 'react';
 import FormValidation from './FormValidation.js';
-import Modal from 'react-bootstrap/Modal'
+import Modal from 'react-bootstrap/Modal';
+
+// Firebase
+import firebase from 'firebase/app';
+import database from 'firebase/database';
+
+// CSS
 import '../css/App.css';
 
 // Model for feedback data
 class DropANoteModel extends Component {
-
-  // pre: Accepts Strings for name, email, resource name, resource type, url,
-  //      and additional feedback
-  // post: saves data as message to Firebase
-  saveFeedback(name, email, resource, resourceType, url, feedback) {
-
-  }
-  
+ 
 }
-
-// Called by FormValidation. Passes data to DropANoteModel.saveFeedback()
-// and waits for confirmation
-/*class FormSubmitController extends Component() {
-
-  // pre: sends feedback data as arguments to DropeANoteModel.saveFeedback()
-  // post: communicates to DropANoteController to display SubmitSuccessView
-  sendFeedback() {}
-
-} */
 
 // Handles the display of the DropANoteView, FormModalView and
 // SubmitSuccessView
 class DropANoteController extends Component {
   constructor(props) {
     super(props);
-    this.state = {show: false}
+    this.messagesRef = firebase.database().ref('messages');
+
+    this.state = {
+      showModal: false,
+      showSuccess: false
+    }
   }
-  
+
+  // pre: Accepts object of form data
+  // post: saves data as message to Firebase
+  saveFeedback = (formData) => {
+    var message = this.messagesRef.push();
+    message.set({formData});
+  }
 
   // On button click, display FormModalView
   // pre: modal is not visible
   // post: modal is visible
   showModal = () => {
-    console.log('Modal show');
     this.setState({
-      show: true
+      showModal: true
     });
   }
 
   hideModal = () => {
-    console.log('Modal hidden');
     this.setState({
-      show: false
+      showModal: false
     });
+  }
+
+  handleSuccess = (data) => {
+    this.hideModal();
+    this.saveFeedback(data);
+    this.showSuccess();
   }
 
   // On confirmation from FormSubmitController, render the
   // SubmitSuccessView
-  handleSuccess() {
-  
+  showSuccess = () => {
+    this.setState({
+      showSuccess: true
+    });
+  }
+
+  hideSuccess = () => {
+    this.setState({
+      showSuccess: false
+    });
   }
 
   // Renders the Drop a Note View
@@ -67,8 +79,9 @@ class DropANoteController extends Component {
   render() {
     return (
       <div>
-        <FormModalView show={this.state.show} hide={this.hideModal}/>
-        <DropANoteView showModal={this.showModal}/>
+        <FormModalView show={this.state.showModal} hide={this.hideModal} handleSuccess={this.handleSuccess}/>
+        <SubmitSuccessView show={this.state.showSuccess} hide={this.hideSuccess} />
+        <DropANoteView showModal={this.showModal} />
       </div>
     );
   } 
@@ -92,40 +105,41 @@ class DropANoteView extends Component {
 // Displays submission form modal
 // Utilizes FormValidation hook to display fields and errors
 class FormModalView extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render () {
-    if (!this.props.show) {
-      return null;
-    }
-    
-    var closeStyle = {
-      width: 50,
-      height: 50, 
-      position: 'absolute', 
-      right: 10
-    };
-
+  render () {  
     return (
-      <div id="show-form">
-          <Modal.Dialog  size="lg">
-            <Modal.Header>
-              <img onClick={this.props.hide} src={require("./img/close.png")} style={closeStyle} alt="Close resource submission page"/>
-              <Modal.Title> 
-                <br></br>
-              </Modal.Title>
-            </Modal.Header>
-            <FormValidation />
-          </Modal.Dialog>
-      </div>
+      <Modal show={this.props.show} onHide={this.props.hide} className="modal-blur" size="lg">
+        <Modal.Header>
+          <Modal.Title />
+          <button onClick={this.props.hide} className="close-button">
+            <img src={require("./img/close.png")} alt="Close form"/>
+          </button>
+        </Modal.Header>
+        <FormValidation handleSuccess={this.props.handleSuccess}/>
+      </Modal>
     );
   }
 
 }
 
 // Modal displayed on submission success
-class SubmitSuccessView extends Component {}
+class SubmitSuccessView extends Component {
+  render () {
+    return (
+      <Modal show={this.props.show} onHide={this.props.hide} className="modal-blur" size="lg">
+        <Modal.Header>
+          <Modal.Title />
+          <button onClick={this.props.hide} className="close-button">
+            <img src={require("./img/close.png")} alt="Close form button"/>
+          </button>
+        </Modal.Header>
+        <Modal.Body>
+        <img className="submission-success-img" src={require("./img/success.png")} alt="Form has been submitted successfully!"/>
+        </Modal.Body>
+      </Modal>
+    );
+  }
 
-export {DropANoteModel, DropANoteController/*, DropANoteView, FormModalView, SubmitSuccessView, FormSubmitController*/};
+
+}
+
+export {DropANoteController};

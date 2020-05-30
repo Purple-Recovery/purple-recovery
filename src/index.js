@@ -2,13 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 
-// CSS imporst
+// Firebase imports
+import firebase from 'firebase/app';
+
+// CSS imports
 import './css/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-
-// Add imports for firebase
+// Firebase config
+var config = {
+  apiKey: "AIzaSyBoMTaX9jqWAx3hrraavh31Ajj4FR45bfo",
+  authDomain: "purple-recovery.firebaseapp.com",
+  databaseURL: "https://purple-recovery.firebaseio.com",
+  projectId: "purple-recovery",
+  storageBucket: "purple-recovery.appspot.com",
+  messagingSenderId: "544763160010",
+  appId: "1:544763160010:web:9916b5f78b5efd20141b33",
+  measurementId: "G-RSF6M57LY2"
+};
+firebase.initializeApp(config);
 
 // Render App
 ReactDOM.render(<App />, document.getElementById('root'));

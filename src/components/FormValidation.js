@@ -1,4 +1,4 @@
-import React, { Component, Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import '../css/App.css';
 
@@ -9,7 +9,7 @@ import '../css/App.css';
 //
 // pre: displays empty form
 // post: displays form and errors for fields
-export default function FormValidation() {
+export default function FormValidation(props) {
 
   const [disabled, setDisabled] = useState(false);
 
@@ -17,21 +17,17 @@ export default function FormValidation() {
     setDisabled(!disabled);
     console.log("Feedback option selected");
   }
+
   function handleResourceClick() {
     setDisabled(false);
     console.log("Resource option selected");
   }
 
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = data => {
     console.log(data);
-    alert(`Thank you for sharing! Your submission has been logged, you may close this form now.`);
-    // return(
-    //   <Fragment>
-    //     <img src={require("./img/success.png")} alt="Submission succesful!"/>
-    //   </Fragment>
-    // );
+    props.handleSuccess(data);
   };
 
   var submissionTextStyle = {
@@ -39,7 +35,8 @@ export default function FormValidation() {
   };
 
   var submissionButtonStyle = {
-    padding: 15,
+    padding: '15px',
+    radius: '10px',
     backgroundColor: 'white',
     border: 'none',
     float: 'right',
@@ -52,48 +49,67 @@ export default function FormValidation() {
       {/* Image of modal header */}
       <img src={require("./img/submission_text.png")} style={submissionTextStyle} alt="Submit a Resource or Feedback" />
 
-      <div class="row">
-        <div class="column">
-          {/* First name and last name entry */}
-          <p id="name-field">First Name:</p>
-          <input type="text" placeholder="First name" name="First name" ref={register({ required: true, maxLength: 30 })} />
+      <div className="row">
+
+        {/* First name input */}
+        <div className="column">
+          <label className="form-label">First Name:</label>
+          <input name="firstName" type="text" placeholder="First name" ref={register({ required: true, maxLength: 30 })} />
+          {errors.firstName && errors.firstName.type === "required" && (
+            <div className="error-message">Required</div>
+          )}
+          {errors.firstName && errors.firstName.type === "maxLength" && (
+            <div className="error-message">Can be max 30 characters long</div>
+          )}
         </div>
 
-        <div class="column">
-          <p id="name-field">Last Name:</p>
-          <input type="text" placeholder="Last name" name="Last name" ref={register({ required: true, maxLength: 100 })} />
+        {/* Last name input */}
+        <div className="column">
+          <label className="form-label">Last Name:</label>
+          <input name="lastName" type="text" placeholder="Last name" ref={register({ required: true, maxLength: 80 })} />
+          {errors.lastName && errors.lastName.type === "required" && (
+            <div className="error-message">Required</div>
+          )}
+          {errors.lastName && errors.lastName.type === "maxLength" && (
+            <div className="error-message">Can be max 80 characters long</div>
+          )}
         </div>
 
-        <div class="column">
-          {/* Email entry */}
-          <p id="name-field">Email:</p>
+        {/* Email input */}
+        <div className="column">
+          <label className="form-label">Email:</label>
           <input
+            name="email"
             type="text"
             placeholder="Email"
-            name="Email"
             ref={
               register({
                 required: true,
                 pattern: {
-                  value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                  message: 'Must be a vaild email'
+                  value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
                 }
               })
             }
           />
-          {errors.email && errors.email.message}
+          {errors.email && errors.email.type === "required" && (
+            <div className="error-message">Required</div>
+          )}
+          {errors.email && errors.email.type === "pattern" && (
+            <div className="error-message">Must be a valid email</div>
+          )}
         </div>
       </div>
 
       {/* Radio Buttons */}
       <p>Select one of the following:</p>
-      <div class="row">
-        <div class="column">
+      <div className="row">
+        <div className="column">
           <div className="form-check">
             <label>
               <input
+                defaultChecked="true"
                 type="radio"
-                name="Submission Type"
+                name="submissionType"
                 value="Resource"
                 onClick={handleResourceClick}
                 className="form-check-input"
@@ -104,12 +120,12 @@ export default function FormValidation() {
           </div>
         </div>
 
-        <div class="column">
+        <div className="column">
           <div className="form-check">
             <label>
               <input
                 type="radio"
-                name="Submission Type"
+                name="submissionType"
                 value="Feedback"
                 className="form-check-input"
                 onClick={handleFeedbackClick}
@@ -121,11 +137,11 @@ export default function FormValidation() {
         </div>
       </div>
 
-      <div class="row">
-        <div class="column">
-          {/* Resource dropdown */}
-          <p>Type of resource</p>
-          <select name="Type of resource" disabled={disabled} ref={register}>
+      <div className="row">
+        {/* Resource dropdown input */}
+        <div className="column">
+          <label className="form-label">Type of Resource:</label>
+          <select name="resourceType" disabled={disabled} ref={register}>
             <option value="Resources">Resources</option>
             <option value="Responses">Responses</option>
             <option value="Community">Community</option>
@@ -134,33 +150,48 @@ export default function FormValidation() {
           </select>
         </div>
 
-        <div class="column">
-          {/* Feedback text field */}
-          <p>Feedback</p>
-          <input type="text" placeholder="Feedback" disabled={!disabled} name="Feedback" ref={register} />
+        {/* Feedback text input */}
+        <div className="column">
+          <label className="form-label">Feedback:</label>
+          <input type="text" placeholder="Comments, questions, etc." disabled={!disabled} name="feedback" ref={register} />
         </div>
       </div>
 
-      <div class="row">
-        <div class="column">
-          {/* Link to Resource text field */}
-          <p>Link resource</p>
-          <input type="url" placeholder="Link to Resource" disabled={disabled} name="Link to Resource" ref={register({ pattern: { value: "https?://.+", message: 'Must be a valid URL' } })} />
+      <div className="row">
+        {/* Resourse Link input */}
+        <div className="column">
+          <label className="form-label">Link to Resource:</label>
+          <input
+            name="link"
+            type="url"
+            placeholder="Insert full URL (https://...)"
+            disabled={disabled}
+            ref={
+              register({
+                pattern: {
+                  value: "https?://.+"
+                }
+              })
+            }
+          />
+          {errors.link && errors.link.type === "pattern" && (
+            <div className="error-message">Must be a valid URL</div>
+          )}
         </div>
       </div>
 
-      <div class="row">
-        <div class="column">
-          {/* Note (optional) text field */}
-          <p>Notes</p>
-          <input type="text" placeholder="Optional" disabled={disabled} name="Notes" ref={register} />
+      <div className="row">
+        {/* Notes (optional) text field */}
+        <div className="column">
+          <label className="form-label">Notes:</label>
+          <input type="text" placeholder="Optional" disabled={disabled} name="notes" ref={register} />
         </div>
       </div>
 
 
-      {/* Submission button */}
+      {/* Submit button */}
       <button type="submit" style={submissionButtonStyle}>
-        <img src={require("./img/submit.png")} alt="Submit resource button" />
+        <img src={require("./img/submit.png")} alt="Submit button" />
       </button>
     </form>
   );
