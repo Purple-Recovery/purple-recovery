@@ -226,7 +226,8 @@ html, body, #root, .homepage {
 
 .section {
   outline-style: solid;
-  color: #b7a57a;
+  /* color: #b7a57a; */
+  color: white;
 }
 
 .h-90 {
@@ -235,4 +236,20 @@ html, body, #root, .homepage {
 
 .h-10 {
   height: 10%
+}
+
+.home-thumbnail {
+  height: 5rem;
+  width: 5rem;
+}
+
+.homeContainer {
+  /* background-color: #452e83; */
+  background-color: rgba(51, 0, 111, 0.3);
+}
+
+.cardButton {
+  background-color: white;
+  border-radius: 15px;
+  padding: 4px;
 }

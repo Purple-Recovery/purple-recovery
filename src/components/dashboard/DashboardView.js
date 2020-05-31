@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import PageView from "../sectionPage/PageView"
-import HomeView from "./HomeView"
+import PageView from "../sectionPage/PageView";
+import HomeView from "./HomeView";
+import CardButtonView from "./CardButtonView";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 // This component displays the HeaderView and SectionViews
