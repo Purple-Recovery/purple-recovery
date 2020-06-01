@@ -18,6 +18,9 @@ class SectionPageNav extends Component {
           <Link to="/responses">
             <p>Responses</p>
           </Link>
+          <Link to="/community">
+            <p>Community</p>
+          </Link>
         </div>
       </div>
     );
