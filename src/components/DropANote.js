@@ -93,7 +93,9 @@ class DropANoteView extends Component {
     var imgStyle = {
       position: 'fixed',
       right: 0,
-      bottom: 0
+      bottom: 0,
+      // added this so highest layer
+      zIndex: 999
     };
 
     return (

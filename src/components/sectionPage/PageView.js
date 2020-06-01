@@ -4,7 +4,6 @@ import HeadlinerView from "./HeadlinerView";
 import SectionPageNavView from "./SectionPageNavView";
 import LinkClusterView from "./LinkClusterView";
 
-
 // This component renders a pageview of a given section name and set of links
 
 class PageView extends Component {

@@ -1,22 +1,26 @@
 import React, { Component } from "react";
+import {Link} from "react-router-dom"
 
 class SectionPageNav extends Component {
   render() {
     return (
       <div class="sectionPageNav">
         <div>
-          <h2 id="sectionPagNavTitle">
-            OTHER SECTIONS
-          </h2>
+          <h2 id="sectionPagNavTitle">OTHER SECTIONS</h2>
         </div>
         <div>
-          <a href="https://google.com">Home</a> <br></br>
-          <a href="https://google.com">Resources</a> <br></br>
-          <a href="https://google.com">Responses</a> <br></br>
-          <a href="https://google.com">Community</a> <br></br>
+          <Link to="/">
+            <p>Home</p>
+          </Link>
+          <Link to="/resources">
+            <p>Resources</p>
+          </Link>
+          <Link to="/responses">
+            <p>Responses</p>
+          </Link>
         </div>
       </div>
-    )
+    );
   }
 }
 

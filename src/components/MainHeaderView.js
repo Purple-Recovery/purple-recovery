@@ -8,13 +8,15 @@ class MainHeaderView extends Component {
   render() {
     return (
       <div class="h-10 mainHeader">
+        {/* todo: update hrefs to homepage, once hosting etc figured out */}
         <div>
-          <h1 class="mainHeaderMain">PURPLE RECOVERY</h1>
+          {/* <h1 class="mainHeaderMain">PURPLE RECOVERY</h1> */}
+          <a href="https://google.com" class="mainHeaderMain">PURPLE RECOVERY</a>
         </div>
         <div>
-          <h2 class="mainHeaderSubtitle">
+          <a href="https://google.com" class="mainHeaderSubtitle">
             COVID-19 INFORMATION FOR UW STUDENTS
-          </h2>
+          </a>
         </div>
       </div>
     );

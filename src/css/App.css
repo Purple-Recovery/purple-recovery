@@ -8,6 +8,12 @@ h1, h2 {
   font-family: 'Encode Sans', sans-serif;
 }
 
+h3 {
+  color: #452e83;
+  font-family: 'Open Sans', sans-serif;
+  padding-left: 10px;
+}
+
 a {
   font-family: 'Open Sans', sans-serif;
 }
@@ -23,15 +29,11 @@ a {
 .purpleBar {
   width: 200px;
   height: 15px;
-  /* margin-bottom: 10px; */
 }
 
 .headliner{
-  /* padding: 15px;
-  padding-left: 40px; */
   margin: 15px;
   margin-left: 40px;
-  /* margin-bottom: -20px; */
   margin-bottom: 20;
   font-family: 'Encode Sans', sans-serif;
   font-size: 36px;
@@ -178,6 +180,8 @@ p {
 .mainHeaderMain {
   font-size: 34px;
   /* margin: 15px; */
+  color: #452e83;
+  font-family: 'Encode Sans', sans-serif;
 }
 
 .mainHeaderSubtitle {
@@ -185,6 +189,8 @@ p {
   color: #452e83;
   font-family: 'Encode Sans', sans-serif;
   padding: 0px;
+  color: #452e83;
+  font-family: 'Encode Sans', sans-serif;
   /* margin: 15px; */
 }
 
@@ -199,6 +205,7 @@ p {
 input, select {
   padding: 5px;
 }
+
 .goldBar {
   width: 500px;
   height: 25px;
@@ -212,7 +219,6 @@ input, select {
   right: 70px;
   top: 20px;
 }
-
 
 /* Stuff for dashboard layout */
 html, body, #root, .homepage {
@@ -230,26 +236,23 @@ html, body, #root, .homepage {
   color: white;
 }
 
-.h-90 {
-  height: 90%
-}
-
-.h-10 {
-  height: 10%
-}
-
 .home-thumbnail {
-  height: 5rem;
-  width: 5rem;
-}
-
-.homeContainer {
-  /* background-color: #452e83; */
-  background-color: rgba(51, 0, 111, 0.3);
+  height: 3rem;
+  width: 3rem;
 }
 
 .cardButton {
   background-color: white;
   border-radius: 15px;
   padding: 4px;
+}
+
+.purpleBackground {
+  background-color: rgba(51, 0, 111, 0.3);
+}
+
+/* Override Bootstrap button color */
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #b7a57a !important;
+  border-color: #b7a57a !important;
 }

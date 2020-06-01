@@ -3,7 +3,7 @@ import { Row, Col } from "react-bootstrap";
 
 class CardButtonView extends Component {
   render() {
-    return <Row className="mb-1 ml-1 mr-1 cardButton">
+    return <Row className="mb-1 ml-1 mr-1 p-2 cardButton">
       <Col xs={4}>
         <img className="home-thumbnail"
           src={this.props.link.img ? this.props.link.img : "./img/dubs.png"}

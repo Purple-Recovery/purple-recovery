@@ -5,7 +5,7 @@ class LinkClusterView extends Component {
     let links = [];
     for (let link of this.props.links) {
       links.push(
-        <div>
+        <div className={"pb-2"}>
           <a href={link.url}>{link.name}</a>
           <br />
         </div>
@@ -13,7 +13,7 @@ class LinkClusterView extends Component {
     }
 
     return (
-      <div class="linkCluster">
+      <div className="linkCluster">
         <h2 className="headliner2">{this.props.name}</h2>
         {links}
       </div>
