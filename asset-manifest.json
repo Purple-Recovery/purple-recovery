@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/purple-recovery/static/css/main.6f879b3a.chunk.css",
+    "main.js": "/purple-recovery/static/js/main.3b6b26aa.chunk.js",
+    "main.js.map": "/purple-recovery/static/js/main.3b6b26aa.chunk.js.map",
+    "runtime-main.js": "/purple-recovery/static/js/runtime-main.ba374387.js",
+    "runtime-main.js.map": "/purple-recovery/static/js/runtime-main.ba374387.js.map",
+    "static/css/2.4819d237.chunk.css": "/purple-recovery/static/css/2.4819d237.chunk.css",
+    "static/js/2.c675a7c4.chunk.js": "/purple-recovery/static/js/2.c675a7c4.chunk.js",
+    "static/js/2.c675a7c4.chunk.js.map": "/purple-recovery/static/js/2.c675a7c4.chunk.js.map",
+    "index.html": "/purple-recovery/index.html",
+    "precache-manifest.c0b6847ca1d0bf0104c352d7d257511f.js": "/purple-recovery/precache-manifest.c0b6847ca1d0bf0104c352d7d257511f.js",
+    "service-worker.js": "/purple-recovery/service-worker.js",
+    "static/css/2.4819d237.chunk.css.map": "/purple-recovery/static/css/2.4819d237.chunk.css.map",
+    "static/css/main.6f879b3a.chunk.css.map": "/purple-recovery/static/css/main.6f879b3a.chunk.css.map",
+    "static/js/2.c675a7c4.chunk.js.LICENSE.txt": "/purple-recovery/static/js/2.c675a7c4.chunk.js.LICENSE.txt",
+    "static/media/submission_text.png": "/purple-recovery/static/media/submission_text.a3605af4.png",
+    "static/media/success.png": "/purple-recovery/static/media/success.ce1bd866.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ba374387.js",
+    "static/css/2.4819d237.chunk.css",
+    "static/js/2.c675a7c4.chunk.js",
+    "static/css/main.6f879b3a.chunk.css",
+    "static/js/main.3b6b26aa.chunk.js"
+  ]
+}
