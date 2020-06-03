@@ -142,7 +142,7 @@ body {
 /* banner */
 .danger {
   float: right;
-  transform: skew(180deg);
+  /* transform: skew(20deg); */
   color: white;
   background-color: #b6a579;
   border-left: 20px solid #b6a579;
