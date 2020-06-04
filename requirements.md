@@ -39,7 +39,7 @@ _Image of Main Dashboard view as a wireframe_
 * Responses - Find Articles
 * Community - Stay Connected
 
-1.7. On the top left of each page, the dashboard header will contain “Purple Recovery” as a title header, and “COVID-19 Information for UW Students” as a subheader. Clicking the title and/or subheader will bring the user back to the main dashboard page. 
+`complete` 1.7. On the top left of each page, the dashboard header will contain “Purple Recovery” as a title header, and “COVID-19 Information for UW Students” as a subheader. Clicking the title and/or subheader will bring the user back to the main dashboard page. 
 
 `complete` 1.8. On the top right of the landing page, there will be a banner displaying the title and date posted of the newest message or update posted in the Messages & Updates section found in the [Official UW COVID-19 Page](https://www.washington.edu/coronavirus/). Clicking this will link to the corresponding message or update link.
 
@@ -155,7 +155,7 @@ _Image of Response Section View Page as a wireframe_
 `complete` 7.7. The list of relevant links will also contain a descriptive label or sentence about the links that are listed.
 > Decided against this, we're mainly a vessel of information. We are not going to be editorializing anything, simply gathering links in one place. 
 
-7.8. The “Drop a Note” feature will stay sticky in the bottom right of the page view--the same location as the main dashboard.
+`complete` 7.8. The “Drop a Note” feature will stay sticky in the bottom right of the page view--the same location as the main dashboard.
 
 `complete` 7.9. The section view page will contain a text navigation of all of the resources’ section view pages on the right hand side under the heading “Sections”. The current page that the user is on will be a deadlink/disabled link. 
 > Instead of this, we now just have a standard text nav. More intuitive for users than a changing nav would be. 
