@@ -3,6 +3,8 @@
 **Purple Recovery**
 ------
 
+* A note: photos are mainly for reference, and are not hard requirements. Our requirements are number-indexed. 
+
 ## Glossary
 * __Breadcrumb Link__: a type of secondary navigation scheme that reveals the user's location in the website relative to the Main Dashboard page.
 * __Card Button__: An html card component that acts as a button to link to an external site.
@@ -53,9 +55,9 @@ _Image of Main Dashboard view as a wireframe_
 
 `complete` 2.4. Clicking any one of the 5 card buttons will redirect the user to the corresponding section on the official UW FAQ Page. 
 
-`revised, see blockquote` 2.5. The sub-section hyperlinks will follow this format: https://www.washington.edu/coronavirus/#[subsection name]
+`revised` 2.5. The sub-section hyperlinks will follow this format: https://www.washington.edu/coronavirus/#[subsection name]
 Where [subsection name] will be replaced with the following respective names: ‘health’, ‘staff’, ‘classes’, ‘operations’, and ‘travel’.
-> Not accurate anymore as UW COVID-19 page has made changes from their end. Purple Recovery currently reflects the 5 sections, but the hyperlinks are now different.
+> Rationale: This is not accurate anymore as UW COVID-19 page has made changes from their end. Purple Recovery currently reflects the 5 sections, but the hyperlinks are now different. We realize this shouldn't even have made it onto our requirements file, as hyperlinks are very dynamic.  
 
 `complete` 2.6. The “Quick Links” section, which is the right column underneath the Resources section, will display 6 individual hyperlinks found on the UW COVID-19 page: “CDC recommendation page”, “DOH page”, “COVID Call Center”, “UW Medicine page”, “UW Mental Health Resources”, and “Spring Quarter FAQ”. These will be displayed in a list view of text hyperlinks, and clicking any of them will redirect the user to that resource’s external website.
 
@@ -142,18 +144,18 @@ _Image of Response Section View Page as a wireframe_
 
 `complete` 7.2. The section view page will contain a breadcrumb link in the top left below the site title.
 
-`revised -> complete` 7.3. Each of the breadcrumbs will link to the respective internal page that is displayed in the list. 
-> Second breadcrumb link is not a link, as it would just lead the user to the page they are already at. 
+`revised, see note` 7.3. Each of the breadcrumbs will link to the respective internal page that is displayed in the list. 
+> We decided that the second breadcrumb link should not be a link, as it would just lead the user to the page they are already at (i.e. basically refresh the page). It would lead to redundant user experience that accomplishes no goal.
 
 `complete` 7.4. The section view page will contain a title of the section that it is related to.
 
 `complete` 7.5. The section view page will display a more comprehensive list of relevant links to its parent section from the main dashboard, as an overflow for the main page.
 
 `revised` 7.6. All urls will be populated by developers inside of the HTML file.
-> Or whatever our data structure is; implementation detail, probably wasn't very important on our requirements page. 
+> Rationale: Currently our links are in .js files; We realize that this is an implementation detail, and shouldn't have been a requirement to begin with.
 
 `revised` 7.7. The list of relevant links will also contain a descriptive label or sentence about the links that are listed.
-> Decided against this, we're mainly a vessel of information. We are not going to be editorializing anything, simply gathering links in one place. 
+> Rationale: We've decided against this, as Purple Recovery is mainly a vessel for information. We are not going to be editorializing anything, we are simply serving as an information consolidation tool.
 
 `complete` 7.8. The “Drop a Note” feature will stay sticky in the bottom right of the page view--the same location as the main dashboard.
 
