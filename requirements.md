@@ -14,7 +14,7 @@
 	* User-submitted/via Drop-A-Note feature (defined in more detail in section below): Users or visitors of Purple Recovery are able to submit resources that they deem might be appropriate for any of our sections. The Purple Recovery team will then have a vetting process in determining if this link would be good to be added. If it is, it will be added to the same stored set of links for the specific section. 
 
 ## Target Screen Size
-* This will be built for screen sizes 1152 pixels wide. Anything larger will center the elements on the screen. E.g., if the screenwidth is 1300 pixels wide, element designs and functionality will stay the same, but there will be an extra 74 pixels of white space on both left and right sides; (1300 - 1152)/2 = 74.
+`complete` * This web app will be built for screen sizes 1400 pixels wide as the ideal view size.
 
 ## 1: Main Dashboard
 `complete` 1.1. This web app will be made with HTML, CSS, JavaScript, and React.
