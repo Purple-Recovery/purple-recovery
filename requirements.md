@@ -36,11 +36,12 @@ _Image of Main Dashboard view as a wireframe_
 
 ![Wireframe of Main Dashboard view](img/dashboard.jpg)
 
-`complete` 1.6. Every section (excluding Trackers & Dashboards and Drop a Note) has a button to open a section’s additional information on a new page. The individual button in each of the sections will contain the respective text (phrase after the dash): 
+`revised` 1.6. Every section (excluding Trackers & Dashboards and Drop a Note) has a button to open a section’s additional information on a new page. The individual button in each of the sections will contain the respective text (phrase after the dash): 
 
 * Resources Section - See All
-* Responses - Find Articles
+* Responses - More Articles
 * Community - Stay Connected
+> Rationale: The individual button text for Responses has been changed from 'Find Articles' to 'More Articles' to indicate this button will show more articles, and not allow users to search for articles.
 
 `complete` 1.7. On the top left of each page, the dashboard header will contain “Purple Recovery” as a title header, and “COVID-19 Information for UW Students” as a subheader. Clicking the title and/or subheader will bring the user back to the main dashboard page. 
 
@@ -70,7 +71,8 @@ Where [subsection name] will be replaced with the following respective names: �
 
 `complete` 3.3. The Responses section will display 3 of the most recently added articles to Purple Recovery on the main dashboard page.
 
-`complete` 3.4. The section will display a ‘Find Articles’ button in the bottom right corner that links to the Responses’ section view page.
+`revised` 3.4. The section will display a ‘More Articles’ button in the bottom right corner that links to the Responses’ section view page.
+> Rationale: See requirement 1.6 for the rationale behind the 'More Articles' button name change
 
 ##4: Community
 
