@@ -9,17 +9,17 @@ class MainHeaderView extends Component {
     return (
       <div class="h-10 mainHeader">
         {/* todo: update hrefs to homepage, Completed! https://purple-recovery.web.app/ */}
-        <div>
+        <h1>
           {/* <h1 class="mainHeaderMain">PURPLE RECOVERY</h1> */}
           <a href="https://purple-recovery.web.app/" class="mainHeaderMain">
             PURPLE RECOVERY
           </a>
-        </div>
-        <div>
+        </h1>
+        <h2>
           <a href="https://purple-recovery.web.app/" class="mainHeaderSubtitle">
             COVID-19 INFORMATION FOR UW STUDENTS
           </a>
-        </div>
+        </h2>
       </div>
     );
   }

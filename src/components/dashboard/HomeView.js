@@ -80,7 +80,7 @@ class HomeView extends Component {
                     name={"Responses"}
                     path={"/responses"}
                     links={this.props.responsesLinks.slice(0,3)}
-                    buttonText={"Find Articles"}
+                    buttonText={"More Articles"}
                   />
                 </Col>
 
